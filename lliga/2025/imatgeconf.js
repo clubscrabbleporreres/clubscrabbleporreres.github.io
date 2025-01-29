@@ -11,7 +11,7 @@ function desaImatgeConf(e) {
     idfull: idfull,
     idJSON: idJSON,
   };
-
+console.log(JSON.stringify(payload))
   fetch(macroURL, {
     method: "POST",
     mode: "no-cors", // Canviat a "cors" per poder accedir a la resposta
