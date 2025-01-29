@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ManaCup</title>
+  <title>LligaScrabblePorreres</title>
   <link rel="stylesheet" href="css.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -28,9 +28,9 @@
       <div class="navbar-brand text-dark h4" onclick="iniciJSON()">
         <img src="/icons/favicon-96x96.png" alt="Logo" width="30" height="auto"
           class="d-inline-block align-text-center">
-        <span id="nomcampionat">ManaCup</span>
+        <span id="nomcampionat">LligaScrabblePorreres</span>
       </div>
-      <span class="float-end badge text-secondary" id="temporada"></span>
+      <span class="float-end badge text-secondary" id="temporada">2025</span>
     </div>
   </nav>
   <nav class=" navbar  bg-body sticky-top">
@@ -508,7 +508,7 @@
               </h4>
               <div id="telegram" class="accordion-collapse collapse" data-bs-parent="#accordioAjuda">
                 <div class="accordion-body">
-                  <p>Si et fas seguidor del canal de <a href="https://t.me/+83OoYpZNGC0zZTM8">Telegram</a>
+                  <p>Si et fas seguidor del canal de <a href="https://t.me/+RlcBzMWTv2AyNjg0">Telegram</a>
                     rebràs els
                     resultats amb un enllaç a la partida, per no perdre pistonada. De tant en tant també
                     s'envien
@@ -549,14 +549,14 @@
     const queryString = window.location.search;
     const urlParams = Object.fromEntries(new URLSearchParams(queryString));
 console.log(urlParams)
-    const macroURL = "https://script.google.com/macros/s/AKfycbwDcFyPQFV3B0bzeRxGU9yaTWhbA3PyR3SQZOQ1KEE5cU08SJb5QaOOfuXxwfVnuASk/exec";
+    const macroURL = "https://script.google.com/macros/s/AKfycbxGxs3BYaEvQObYn_LQd0Z151x7AbrGwsHXue70Ta0uDgsRkfCTPcSfc7ar_jxgFltG/exec";
     let parameterId = urlParams.id || "no";
     let parameterVista = urlParams.vista;
     let parameterOptions = urlParams.options;
     let vistaPredet = { page: parameterVista, options: parameterOptions };
-    let idfull = urlParams.idfull || "1pj6G5pgDUAypPB7O9gkFduYAItopiQBYVR37eXalIvU";
-    let idJSON = urlParams.idJSON || "1dq1L8JCfGurr08rNQ59QaALG10ocSjXg";
-    let JSONfixe = "manacup_24-25.json"
+    let idfull = urlParams.idfull || "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E";
+    let idJSON = urlParams.idJSON || "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-";
+    let JSONfixe = "Lliga_Porreres 2025.json"
     //let usaJSONfixe =  urlParams.turbo || localStorage.getItem("turbo") //true/false
     let mostrapestanyes = urlParams.mostrapestanyes || "no";
     if (mostrapestanyes === "si") {
