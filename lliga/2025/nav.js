@@ -3,7 +3,7 @@ const partidesHistory = ["home"];
 const validador = "https://diccionari.totescrable.cat/validador/";
 const blog = "https://scrabblemanacor.wordpress.com/";
 const rellotge = "https://manacup.github.io/rellotgeScrabble/index.html";
-const apps = "https://manacup.github.io";
+const apps = "https://clubscrabbleporreres.github.io";
 
 let currentPage = "home";
 

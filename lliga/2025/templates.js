@@ -288,7 +288,8 @@ function renderJugador(jugador) {
                                  <td></td>
                             </tr>
                             <tbody>
-                                ${ompleTaulaScrabbles(jugador.partides)}
+                                ${console.log(jugador.partides)&& 
+                                  ompleTaulaScrabbles(jugador.partides)}
                             </tbody>
                         </table>
                       </div>
