@@ -124,7 +124,7 @@ function renderJugador(jugador) {
                     }');">
                       <i class="bi bi-whatsapp  me-2"></i>Missatge
                     </button>
-                    <div class="row align-items-end text-center mt-5 mb-2  ${jugador.etiqueta=="debutant"?"d-none":""}">
+                    <div class="row align-items-end text-center mt-5 mb-2 d-none ${jugador.etiqueta=="debutant"?"d-none":""}">
                       <div class="col">
                         <p class="mb-2 h5">${jugador.BRF}
                         <br>Núm. ${jugador.PosBRF}
@@ -725,11 +725,11 @@ function renderClassificacio(jugador) {
                         </div>
                         <div  class="flex-grow-1">
                         </div>
-                        <span class="badge text-bg-secondary me-1 ${
+                        <span class="badge me-1 ${
                           jugador.grup != "" ? "" : "d-none"
                         }">
                         <span class="visually-hidden-focusable">grup${
-                          jugador.grup
+                          jugador.grupIcona
                         }</span>
                           ${jugador.grup}
                         </span>                        
