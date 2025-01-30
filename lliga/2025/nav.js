@@ -442,7 +442,7 @@ function updatePartidaHistory(page) {
 }
 
 // Manejar eventos de clic en los enlaces de navegación
-const navLinks = document.querySelectorAll("navApp");
+const navLinks = document.querySelectorAll(".navApp");
 navLinks.forEach((link) => {
   link.addEventListener("click", function (event) {
     // navLinks.forEach(l=>{l.classList.remove("active")})
