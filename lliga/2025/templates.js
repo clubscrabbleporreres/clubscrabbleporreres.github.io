@@ -729,9 +729,9 @@ function renderClassificacio(jugador) {
                           jugador.grup != "" ? "" : "d-none"
                         }">
                         <span class="visually-hidden-focusable">grup${
-                          jugador.grupIcona
+                          jugador.grup
                         }</span>
-                          ${jugador.grup}
+                          ${jugador.grupIcona}
                         </span>                        
                         <span class="badge text-bg-${
                           jugador.Semafor
