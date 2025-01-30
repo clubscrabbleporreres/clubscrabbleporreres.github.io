@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ca" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LligaScrabblePorreres</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Incluir los estilos de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script
+        src="https://cdn.jsdelivr.net/gh/tanaikech/HtmlFormObjectParserForGoogleAppsScript_js@master/htmlFormObjectParserForGoogleAppsScript_js.min.js">
+        </script>
+    <script src="tema.js"></script>
+
+</head>
+
+<body id="body">
+    <div id="loaded" class="d-none">
+    </div>
+
+    <nav class="navbar pb-0 bg-light">
+        <div class="container-fluid">
+            <div class="navbar-brand text-dark h4" onclick="iniciJSON(false)">
+                <img src="/icons/favicon-96x96.png" alt="Logo" width="30" height="auto"
+                    class="d-inline-block align-text-center">
+                <span id="nomcampionat">LligaScrabblePorreres</span>
+            </div>
+            <span class="float-end badge text-secondary" id="temporada">2025</span>
+        </div>
+    </nav>
+    <nav class=" navbar  bg-body sticky-top">
+        <div class="container-fluid">
+            <div class="navbar-brand flex-grow-1 ">
+                <div class="d-flex align-items-center" id="goBack" style="cursor: pointer;">
+                    <i class="bi bi-arrow-left me-2 d-none" id="botoEnrera"></i>
+                    <div class="nav-link ">
+                        <span id="navbar-title"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="botocerca" class="navbar-toggler me-2" data-bs-toggle="collapse" data-bs-target="#collapseCerca">
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="navbar-toggler  dropdown" data-bs-toggle="dropdown" data-bs-target="#menu" aria-expanded="false"
+                aria-controls="menu">
+                <i class="bi bi-three-dots-vertical"></i>
+            </div>
+
+            <ul class="dropdown-menu dropdown-menu-end me-2" id="menu">
+                <li id="usermenu" class="d-none">
+                    <div class="dropdown-header">
+                        <div class=" d-flex ">
+                            <div class="d-flex flex-grow-1 click btnInfo" onclick="carregaJugDesat()">
+                                <img src="/icons/Imatge-default.jpg" alt="usuari" class="circle userImg"
+                                    referrerpolicy="no-referrer" onerror="this.src='/icons/Imatge-default.jpg'">
+                                <span id="usernom" class="d-inline-block text-truncate ms-2"
+                                    style="max-width: 100px;">Usuari</span>
+                            </div>
+
+                            <div class="click" data-bs-toggle="modal" data-bs-target="#menuJugador"
+                                aria-expanded="false" aria-controls="menuJugador" data-bs-auto-close="outside"><i
+                                    class="bi bi-gear"></i></div>
+
+                        </div>
+                    </div>
+
+                </li>
+                <li>
+                    <h6 class="dropdown-header text-danger">Classificacions<i class="bi bi-arrow-repeat float-end"
+                            onclick="iniciJSON()"></i></h6>
+                </li>
+                <li><a class="dropdown-item" href="#classificacio">Classificació general</a></li>
+                <li><a class="dropdown-item" href="#scrabbles">Scrabbles</a></li>
+                <li><a class="dropdown-item" href="#jugada">Millor jugada</a></li>
+                <li><a class="dropdown-item" href="#partida">Millor partida individual</a></li>
+                <li><a class="dropdown-item" href="#conjunta">Millor partida conjunta</a></li>
+                <!-- <li><a class="dropdown-item" href="#social">Participació social</a></li>
+        <li><a class="dropdown-item" href="#immediatesa">Menys procrastinador</a></li> -->
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <h6 class="dropdown-header text-success">Calendari</h6>
+                </li>
+                <li><a class="dropdown-item" href="#rondes">Rondes</a></li>
+                <li><a class="dropdown-item" href="#trobades">Trobades</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <h6 class="dropdown-header text-warning">Enllaços</h6>
+                </li>
+                <!-- <li><a class="dropdown-item" href="#blog">Blog del club</a></li> -->
+                <li><a class="dropdown-item" href="https://manacup.github.io/rellotgeScrabble/index.html"
+                        target="_blank">Rellotge</a></li>
+                <li><a class="dropdown-item" href="https://diccionari.totescrable.cat/validador/"
+                        target="_blank">Validador</a></li>
+                <!-- <li><a class="dropdown-item" href="#apps">Aplicacions</a></li> -->
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <h6 class="dropdown-header text-primary click" data-bs-toggle="modal" data-bs-target="#ajuda">Ajuda
+                    </h6>
+                </li>
+            </ul>
+
+            <div id="botojugador" class=" ms-2" data-bs-toggle="modal" data-bs-target="#menuJugador"
+                aria-expanded="false" aria-controls="menuJugador" data-bs-auto-close="outside">
+                <img src="/icons/Imatge-default.jpg" alt="usuari" class="circle userImg" referrerpolicy="no-referrer"
+                    onerror="this.src='/icons/Imatge-default.jpg'">
+            </div>
+
+            <div class="collapse  navbar-collapse search mt-2" role="search" id="collapseCerca">
+                <div class="input-group">
+                    <span class="input-group-text" id="comptador"></span>
+                    <input class="form-control" type="search" placeholder="Cerca">
+                </div>
+            </div>
+
+
+        </div>
+        <!-- </nav> -->
+
+        <ul class="collapse navbar-collapse nav nav-underline flex-nowrap text-nowrap overflow-x-scroll"
+            id="collapsetabs">
+            <li class="nav-item ms-2"><a class="nav-link" href="#classificacio">Classificació general</a></li>
+            <li class="nav-item"><a class="nav-link" href="#scrabbles">Scrabbles</a></li>
+            <li class="nav-item"><a class="nav-link" href="#jugada">Millor jugada</a></li>
+            <li class="nav-item"><a class="nav-link" href="#partida">Millor partida individual</a></li>
+            <li class="nav-item"><a class="nav-link" href="#conjunta">Millor partida conjunta</a></li>
+            <li class="nav-item"><a class="nav-link" href="#social">Participació social</a></li>
+            <li class="nav-item"><a class="nav-link" href="#immediatesa">Menys procrastinador</a></li>
+            <li class="nav-item"><a class="nav-link" href="#rondes">Rondes</a></li>
+            <li class="nav-item me-2"><a class="nav-link" href="#trobades">Trobades</a></li>
+        </ul>
+    </nav>
+
+    <div class="modal" tabindex="-1" id="desajug">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitol">Selecciona l'usuari</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <div class="row g-3">
+                        <div class="col">
+                            <label for="inpdesajug">Comença a escriure el teu nom i tria de la llista
+                                <input id="inpdesajug" type="search" class="form-control llistajugadors"
+                                    data-datalist="jugadors" placeholder="Escriu" />
+                        </div>
+                        <datalist id="jugadors"></datalist>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Desa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="preferencies">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitol">Gestiona les preferències</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <div class="row mb-3 g-3">
+                        <div id="tema">
+                            <div class="row">
+                                <div class="col-8 mb-3"><i class="bi bi-sun-fill me-2"></i>
+                                    <span class="ms-2">Tria l'esquema de colors</span>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <select class="form-select" id="temaselector">
+                                        <option value="light">Clar</option>
+                                        <option value="dark">Fosc</option>
+                                        <option value="auto" selected>Auto</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" mb-3">
+                        <div class="row">
+                            <div class="col-10"><i class="bi bi-segmented-nav me-2"></i>
+                                <span class="ms-2">Mostra les pestanyes</span>
+                            </div>
+                            <div class="col-2 text-end">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="pestanyes" value="pestanyes"
+                                        name="pestanyes" data-bs-toggle="collapse" data-bs-target="#collapsetabs">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 end-0 p-3">
+            <div id="toast" class="toast align-items-center fade" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container p-3 bg-body col-md-8 justify-content-center">
+        <div id="number"></div>
+        <div id="swiper">
+            <div id="content" class="row">
+            </div>
+        </div>
+    </main>
+    <div src="./menuJugador.html"></div>
+    <div src="./desaimatge.html"></div>
+    <div src="./ajuda.html"></div>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = Object.fromEntries(new URLSearchParams(queryString));
+        console.log(urlParams)
+        const macroURL = "https://script.google.com/macros/s/AKfycbxGxs3BYaEvQObYn_LQd0Z151x7AbrGwsHXue70Ta0uDgsRkfCTPcSfc7ar_jxgFltG/exec";
+        let parameterId = urlParams.id || "no";
+        let parameterVista = urlParams.vista;
+        let parameterOptions = urlParams.options;
+        let vistaPredet = { page: parameterVista, options: parameterOptions };
+        let idfull = urlParams.idfull || "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E";
+        let idJSON = urlParams.idJSON || "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-";
+        let JSONfixe = "Lliga_Porreres 2025.json"
+        let mostrapestanyes = urlParams.mostrapestanyes || "no";
+        if (mostrapestanyes === "si") {
+            document.getElementById("collapsetabs").classList.add("show");
+            document.getElementById("pestanyes").checked = true;
+            setStoredPestanyes("true");
+        }
+
+    </script>
+    <script src="carregant.js"></script>
+    <script type="module" src="moduls.js"></script>
+    <script src="templates.js"></script>
+    <script src="respostes.js"></script>
+    <script src="trobades.js"></script>
+    <script src="swipe.js"></script>
+    <script src="nav.js"></script>
+    <script src="imatgeconf.js"></script>
+    <script src="parametres.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+
+    </script>
+</body>
+</html>

@@ -55,7 +55,7 @@ function carregaUsuari() {
       dades.filter((j) => j.ID == parameterId)[0] || jugadorDefault;
   }
 }
-document.addEventListener("DOMContentLoaded", iniciJSON(false));
+document.addEventListener("DOMContentLoaded", iniciJSON(true));
 
 function iniciJSON(turbo,vista) {
   
@@ -76,6 +76,8 @@ function iniciJSON(turbo,vista) {
       Promise.all(responses.map((response) => response.json()))
     )
     .then(([data]) => {
+      idfull = data.idfull
+      idJSON = data.idJSON
       // Process dataTrobades, dataJugadors, etc.
       // ...
       // Example: Accessing data from the 'trobades' response
