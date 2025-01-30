@@ -374,61 +374,6 @@ function renderFormTrobada(trobada) {
     :document.getElementById("enviaAssistencia").disabled=true
   });
 }
-/* async function enviaRespAssistencia() {
-  try {
-    preventFormSubmit(); // Evitar l'enviament del formulari per defecte
-
-    // Obtenir el formulari i processar les dades
-    const form = document.getElementById("trobadaForm");
-    const dataform = new FormData(form);
-    const values = Object.fromEntries(dataform.entries());
-
-    // Desactivar el botó i mostrar un spinner
-    const submitButton = document.getElementById("enviaAssistencia");
-    const spinner = document.getElementById("spnbtn3");
-    submitButton.disabled = true;
-    spinner.classList.remove("d-none");
-
-    // Preparar la càrrega útil per a l'enviament
-    const payload = {
-      envia: "trobada",
-      values: values,
-      idfull: idfull,
-      idJSON: idJSON,
-    };
-
-    console.log("Payload enviat:", JSON.stringify(payload));
-
-    // Enviar la petició
-    const response = await fetch(macroURL, {
-      method: "POST",
-      mode: "no-cors", // Assegura la compatibilitat amb CORS
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    // Comprovar si la resposta és vàlida
-    if (!response.ok) {
-      throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
-    }
-
-
-
-    // Opcional: Actualitzar informació després de la resposta
-    setTimeout(() => iniciJSON(false, "trobades"), 200); // Reduir el temps d'espera
-
-  } catch (error) {
-    // Gestionar errors
-    console.error("Error durant l'enviament:", error);
-    alert("Hi ha hagut un error en l'enviament. Si us plau, torna-ho a intentar.");
-  } finally {
-    // Tornar a habilitar el botó i amagar el spinner
-    document.getElementById("enviaAssistencia").disabled = false;
-    document.getElementById("spnbtn3").classList.add("d-none");
-  }
-} */
 
  async function enviaRespAssistencia() {
   preventFormSubmit();
