@@ -521,17 +521,4 @@ function ExcelDateToJSDateNormal(serial) {
   return jsdate;
 }
 
-/* document.getElementById('downloadICS').addEventListener('click', () => {
-createDownloadICSFile(
-  'Europe/Madrid',
-  startTime,
-  startTime,
-  title,
-  '',
-  venueName,
-  address,
-  '',
-  ''
-);  
-});
- */
+
