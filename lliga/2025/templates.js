@@ -58,7 +58,7 @@ function carregaJugDesat(){
 }
 
 function renderJugador(jugador) {
-  //console.log(jugador)
+  console.log(jugador)
   
   var campionats = jugador.Campionats.split(/\n/);
   var podis = jugador.Podis.split(/\n/);
