@@ -1,0 +1,17 @@
+{
+   "name": "Porreres App",
+   "short_name": "Porreres",
+   "description": "Progressive Web App per a la gestió del campionat de Scrabble del Club Scrabble Manacor.",
+   "icons": [
+      
+      {"src": "icons/favicon-96x96.png",
+         "sizes": "96x96",
+         "type": "image/png"
+      }
+   ],
+   "start_url": "/index.html",
+   "display": "standalone",
+   "theme_color": "#f8f9fa",
+   "background_color": "#f8f9fa"
+}
+

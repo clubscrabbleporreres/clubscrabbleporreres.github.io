@@ -1,0 +1,5 @@
+{
+ "name": "Porreres App",
+  "display": "standalone",
+  "start_url": "/?standalone=true"
+}

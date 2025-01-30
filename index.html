@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="icons/favicon-96x96.png">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="description"
+        content="Progressive Web App per a la gestió dels campionats de Scrabble del Club Scrabble Porreres.">
+    <meta name="author" content="CSPorreres">
+    <meta property="og:image" content="icons/favicon-96x96">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        nav .navbar-brand {
+            font-size: 1.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Campionats del CS Manacor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Club Scrabble Porreres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/normativa.html" target="_blank">Normativa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://icon.cat/wordertorn/"
+                            target="_blank">WORdERtorn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/rellotgeScrabble/index.html"
+                            target="_blank">Rellotge <span class="badge bg-warning text-dark">v1.0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Lliga Porreres</h4>
+                <ul class="list-group">
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="/lliga/2025/index.html" class="text-decoration-none"><strong>1a Lliga de
+                                Porreres</strong></a>
+                        <span class="badge bg-success">2025</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-12 mt-4">
+                <h4 class="mb-3">Jocs</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="https://manacup.github.io/jocParaules/index.html" class="text-decoration-none">
+                            <strong>Jugada vàlida</strong>
+                        </a>
+                        <span class="badge bg-warning text-dark">beta</span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://manacup.github.io/anagrama/index.html" class="text-decoration-none">
+                            <strong>Forma paraules</strong>
+                        </a>
+                        <span class="badge bg-warning text-dark">beta</span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://manacup.github.io/jocRedueix/index.html" class="text-decoration-none">
+                            <strong>Redueix el nombre</strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        if ('serviceWorker' in navigator) {
+            caches.keys().then(function (cacheNames) {
+                cacheNames.forEach(function (cacheName) {
+                    caches.delete(cacheName);
+                });
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
