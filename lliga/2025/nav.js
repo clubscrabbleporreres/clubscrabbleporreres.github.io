@@ -445,6 +445,16 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
     case "apps":
       window.location.assign(apps);
       break;
+      case "reglament":
+        navbarTitle.innerHTML = "Reglament";
+        fetch('/reglament.html')
+  .then(response => response.text())
+  .then(data => {
+    contentDiv.innerHTML = data;
+  })
+  .catch(error => console.error('Error carregant el fitxer:', error));
+        
+        break;
 
     default:
       contentDiv.innerHTML =

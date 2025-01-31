@@ -16,7 +16,8 @@ let jugadorDefault = {
 let jugadorDesat = {};
 
 const vistesGenerals = [
-  "classificacio",
+  "passeres",
+  "fassers",
   "scrabbles",
   "jugada",
   "partida",
@@ -25,7 +26,7 @@ const vistesGenerals = [
   "immediatesa",
   "rondes",
   "trobades",
-  "classificacio",
+  "passeres",
 ];
 let vistesPartides = [];
 const vistesNoSwipe = ["imatge", "formulari", "assistencia"];
