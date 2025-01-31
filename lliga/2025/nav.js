@@ -88,7 +88,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-const dadesfassers = dades.filter(g=>g.Grup == 'fassers')
+const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -134,7 +134,7 @@ const dadesfassers = dades.filter(g=>g.Grup == 'fassers')
         div.classList.add("justify-content-center"); */
         div.classList.add("p-0");
         contentDiv.appendChild(div);
-      const dadespasseres = dades.filter(g=>g.Grup == "pàsseres")
+      const dadespasseres = dades.filter(g=>g.grup == "pàsseres")
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
