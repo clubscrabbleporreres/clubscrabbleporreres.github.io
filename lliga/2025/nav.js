@@ -675,7 +675,7 @@ function groupById(array) {
         Jugador1: current.Jugador1,
         Jugador2: current.Jugador2,
         Estat: current.Estat,
-        Grup: current.GrupPosició,
+        Grup: current.Grup,
         resultats: [current], //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
       });
     }
