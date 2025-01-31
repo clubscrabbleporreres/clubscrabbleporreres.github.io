@@ -240,7 +240,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       /* var partidesfiltagrupades = groupById(partidesfilt);
       console.log(partidesfiltagrupades); */
       var grup = "";
-      partidesfiltagrupades.forEach((partida) => {
+      partidesfilt.forEach((partida) => {
         if (
           dades.filter(
             (j) => j.Nom == partida.Jugador1 || j.Nom == partida.Jugador2
