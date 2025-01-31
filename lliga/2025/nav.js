@@ -220,15 +220,25 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
     case "ronda":
       navbarTitle.innerHTML = "Ronda " + options;
 
-      function ordreConjunta(a, b) {
-        return b.Grup - a.Grup;
+      function ordregrup(a, b)  {
+        const nameA = a.Grup.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.Grup.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        // names must be equal
+        return 0;
       }
-      aparellaments.sort(ordreConjunta);
+      aparellaments.sort(ordregrup);
 
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options);
       //console.log(partidesfilt)
-      var partidesfiltagrupades = groupById(partidesfilt);
-      console.log(partidesfiltagrupades);
+      /* var partidesfiltagrupades = groupById(partidesfilt);
+      console.log(partidesfiltagrupades); */
       var grup = "";
       partidesfiltagrupades.forEach((partida) => {
         if (
