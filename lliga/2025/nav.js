@@ -89,11 +89,11 @@ function loadContent(vista) {
       div.classList.add("p-0");
       contentDiv.appendChild(div);
 const dadesfassers = dades.filter(g=>g.Grup == 'fassers')
-      function ordreClassificacio(a, b) {
+      /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
-      }
+      } */
       dadesfassers.sort(ordreClassificacio);
-      //console.log(dades)
+      console.log(dadesfassers)
       dadesfassers.forEach((jugador) => {
         jugador.percentatgeVictories =
           parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
@@ -134,12 +134,12 @@ const dadesfassers = dades.filter(g=>g.Grup == 'fassers')
         div.classList.add("justify-content-center"); */
         div.classList.add("p-0");
         contentDiv.appendChild(div);
-      const dadespasseres = dades.filter(g=>g.Grup == 'fassers')
-      function ordreClassificacio(a, b) {
+      const dadespasseres = dades.filter(g=>g.Grup == "pàsseres")
+      /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
-      }
+      } */
       dadespasseres.sort(ordreClassificacio);
-      //console.log(dades)
+      console.log(dadespasseres)
       dadespasseres.forEach((jugador) => {
         jugador.percentatgeVictories =
           parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
