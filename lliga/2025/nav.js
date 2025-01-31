@@ -41,7 +41,7 @@ function loadContent(vista) {
             <!-- Targeta 1 -->
             <div class="col-md-6 mb-4">
                 <div class="card text-center">
-                    <div class="card-body" onclick="loadContent('passeres')">
+                    <div class="card-body" onclick="loadContent(['passeres'])">
                         <!-- Imatge rodona -->
                         <img src="/icons/passera.jpg" class="rounded-circle mb-3" alt="pàssera">
                         <!-- Nom -->
@@ -53,7 +53,7 @@ function loadContent(vista) {
             <!-- Targeta 2 -->
             <div class="col-md-6 mb-4">
                 <div class="card text-center">
-                    <div class="card-body" onclick="loadContent('fassers')">
+                    <div class="card-body" onclick="loadContent(['fassers'])">
                         <!-- Imatge rodona -->
                         <img src="/icons/fasser.jpg" class="rounded-circle mb-3" alt="fasser">
                         <!-- Nom -->
