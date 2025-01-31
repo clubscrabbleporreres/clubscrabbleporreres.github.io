@@ -228,7 +228,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options);
       //console.log(partidesfilt)
       var partidesfiltagrupades = groupById(partidesfilt);
-      //console.log(partidesfiltagrupades);
+      console.log(partidesfiltagrupades);
       var grup = "";
       partidesfiltagrupades.forEach((partida) => {
         if (
@@ -241,10 +241,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
             document.getElementById("content").innerHTML +=
               "<h6>Grup " + grup + "</h6>";
           }
-          partida.totalPunts_1 =
-            partida.resultats[0].Puntuacio_1 + partida.resultats[1].Puntuacio_1;
-          partida.totalPunts_2 =
-            partida.resultats[0].Puntuacio_2 + partida.resultats[1].Puntuacio_2;
+       
           renderAparellaments(partida);
         }
       });
