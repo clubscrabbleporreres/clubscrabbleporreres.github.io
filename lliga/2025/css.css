@@ -76,6 +76,12 @@ body {
   border-radius: 0.375rem; /* Elimina la forma de cercle per veure la imatge completa */
   overflow: auto; /* Si l'imatge és més gran que la finestra, permet desplaçar-se */
 }
+ /* Estil personalitzat per a les imatges rodones */
+ .rounded-circle {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* Assegura que la imatge s'ajusti bé */
+}
 /* Estil CSS personalitzat per al cercle */
 .circle {
   width: 30px;

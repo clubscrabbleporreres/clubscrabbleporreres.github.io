@@ -33,7 +33,40 @@ function loadContent(vista) {
       contentDiv.innerHTML =
         "<h1>Página d'inici</h1><p>Benvingut a la primera pàgina</p>";
       break;
-    case "classificacio":
+      case "classificacio":
+        navbarTitle.innerHTML = "Grups";
+        contentDiv.innerHTML = `
+            <div class="container mt-5">
+        <div class="row">
+            <!-- Targeta 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body" onclick="loadContent('passeres')">
+                        <!-- Imatge rodona -->
+                        <img src="/icons/passera.jpg" class="rounded-circle mb-3" alt="pàssera">
+                        <!-- Nom -->
+                        <h5 class="card-title">Pàsseres</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Targeta 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body" onclick="loadContent('fassers')">
+                        <!-- Imatge rodona -->
+                        <img src="/icons/fasser.jpg" class="rounded-circle mb-3" alt="fasser">
+                        <!-- Nom -->
+                        <h5 class="card-title">Fassers</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+        break
+
+    case "classificaciogeneral":
       navbarTitle.innerHTML = "Classificació";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
