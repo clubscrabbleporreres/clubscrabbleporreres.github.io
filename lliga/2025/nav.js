@@ -79,6 +79,98 @@ function loadContent(vista) {
       });
 
       break;
+      case "fassers":
+      navbarTitle.innerHTML = "Classificació fassers";
+      contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
+      var div = document.createElement("div");
+      div.id = "subcontent";
+      /* div.classList.add("row-md-8");
+      div.classList.add("justify-content-center"); */
+      div.classList.add("p-0");
+      contentDiv.appendChild(div);
+const dadesfassers = dades.filter(g=>g.Grup == 'fassers')
+      function ordreClassificacio(a, b) {
+        return a.Posició - b.Posició;
+      }
+      dadesfassers.sort(ordreClassificacio);
+      //console.log(dades)
+      dadesfassers.forEach((jugador) => {
+        jugador.percentatgeVictories =
+          parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
+        renderClassificacio(jugador);
+      });
+      var ordenada = false;
+      var icona = document.getElementById("icona");
+      document.getElementById("ordenarBoto").addEventListener("click", () => {
+        // Llama a la función de ordenar la tabla por la segunda columna (Edad)
+        if (!ordenada) {
+          ordenarLlistaPercentatge();
+          ordenada = true;
+          icona.classList.add("bi-list-ol");
+          icona.classList.remove("bi-percent");
+        } else {
+          ordenarLlistaPunts();
+          ordenada = false;
+          icona.classList.remove("bi-list-ol");
+          icona.classList.add("bi-percent");
+        }
+      });
+      contentDiv.querySelectorAll(".card").forEach((nom) => {
+        var id = nom.dataset.id;
+        //console.log(id)
+        nom.addEventListener("click", () => {
+          loadContent(["detall", id]);
+          updateHistory(["detall", id]);
+        });
+      });
+
+      break;
+      case "passeres":
+        navbarTitle.innerHTML = "Classificació pàsseres";
+        contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
+        var div = document.createElement("div");
+        div.id = "subcontent";
+        /* div.classList.add("row-md-8");
+        div.classList.add("justify-content-center"); */
+        div.classList.add("p-0");
+        contentDiv.appendChild(div);
+      const dadespasseres = dades.filter(g=>g.Grup == 'fassers')
+      function ordreClassificacio(a, b) {
+        return a.Posició - b.Posició;
+      }
+      dadespasseres.sort(ordreClassificacio);
+      //console.log(dades)
+      dadespasseres.forEach((jugador) => {
+        jugador.percentatgeVictories =
+          parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
+        renderClassificacio(jugador);
+      });
+      var ordenada = false;
+      var icona = document.getElementById("icona");
+      document.getElementById("ordenarBoto").addEventListener("click", () => {
+        // Llama a la función de ordenar la tabla por la segunda columna (Edad)
+        if (!ordenada) {
+          ordenarLlistaPercentatge();
+          ordenada = true;
+          icona.classList.add("bi-list-ol");
+          icona.classList.remove("bi-percent");
+        } else {
+          ordenarLlistaPunts();
+          ordenada = false;
+          icona.classList.remove("bi-list-ol");
+          icona.classList.add("bi-percent");
+        }
+      });
+      contentDiv.querySelectorAll(".card").forEach((nom) => {
+        var id = nom.dataset.id;
+        //console.log(id)
+        nom.addEventListener("click", () => {
+          loadContent(["detall", id]);
+          updateHistory(["detall", id]);
+        });
+      });
+
+      break;
     case "conjunta":
       navbarTitle.innerHTML = `Partida conjunta`;
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-calendar3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per data o per punts."></i></div>`;
@@ -128,14 +220,33 @@ function loadContent(vista) {
     case "ronda":
       navbarTitle.innerHTML = "Ronda " + options;
 
-      function ordreConjunta(a, b) {
+      /* function ordreConjunta(a, b) {
         return b.Suma_punts - a.Suma_punts;
       }
-      aparellaments.sort(ordreConjunta);
+      aparellaments.sort(ordreConjunta); */
 
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options);
-      partidesfilt.forEach((partida) => {
-        renderAparellaments(partida);
+      //console.log(partidesfilt)
+      var partidesfiltagrupades = groupById(partidesfilt);
+      //console.log(partidesfiltagrupades);
+      var grup = "";
+      partidesfiltagrupades.forEach((partida) => {
+        if (
+          dades.filter(
+            (j) => j.Nom == partida.Jugador1 || j.Nom == partida.Jugador2
+          )[0].Baixa != "TRUE"
+        ) {
+          if (partida.Grup != grup) {
+            grup = partida.Grup;
+            document.getElementById("content").innerHTML +=
+              "<h6>Grup " + grup + "</h6>";
+          }
+          partida.totalPunts_1 =
+            partida.resultats[0].Puntuacio_1 + partida.resultats[1].Puntuacio_1;
+          partida.totalPunts_2 =
+            partida.resultats[0].Puntuacio_2 + partida.resultats[1].Puntuacio_2;
+          renderAparellaments(partida);
+        }
       });
       vistesPartides = partidesfilt.map((ap) => ap.ID.toString());
 
@@ -549,4 +660,25 @@ function minimenu(estat) {
       document.getElementById(elmin).classList.add("d-none");      
     });
   }
+}
+function groupById(array) {
+  return array.reduce((acc, current) => {
+    const foundItem = acc.find((it) => it.ID === current.ID);
+
+    if (foundItem) {
+      foundItem.resultats = foundItem.resultats
+        ? [...foundItem.resultats, current] //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
+        : [current]; //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }];
+    } else {
+      acc.push({
+        ID: current.ID,
+        Jugador1: current.Jugador1,
+        Jugador2: current.Jugador2,
+        Estat: current.Estat,
+        Grup: current.GrupPosició,
+        resultats: [current], //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
+      });
+    }
+    return acc;
+  }, []);
 }
