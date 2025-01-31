@@ -220,10 +220,10 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
     case "ronda":
       navbarTitle.innerHTML = "Ronda " + options;
 
-      /* function ordreConjunta(a, b) {
-        return b.Suma_punts - a.Suma_punts;
+      function ordreConjunta(a, b) {
+        return b.Grup - a.Grup;
       }
-      aparellaments.sort(ordreConjunta); */
+      aparellaments.sort(ordreConjunta);
 
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options);
       //console.log(partidesfilt)
@@ -667,14 +667,15 @@ function groupById(array) {
         ? [...foundItem.resultats, current] //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
         : [current]; //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }];
     } else {
-      acc.push({
+ /*      acc.push({
         ID: current.ID,
         Jugador1: current.Jugador1,
         Jugador2: current.Jugador2,
         Estat: current.Estat,
         Grup: current.Grup,
         resultats: [current], //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
-      });
+      }); */
+      acc.push(current)
     }
     return acc;
   }, []);
