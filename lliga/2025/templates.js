@@ -1447,6 +1447,8 @@ function ompleTaulaRonda(partidesRonda,ordredata) {
         partidesRonda[index] = nojugades.shift();
       }
     });
+  }else{
+    partidesRonda.sort(ordreRondes)
   }
   
   function ordreRondes(a, b) {
