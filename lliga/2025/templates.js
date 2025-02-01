@@ -445,7 +445,7 @@ function renderJugador(jugador) {
                         <table class="table" id="miTabla">
                             
                             <tbody id="tbodyordre">
-                                ${ompleTaulaRonda(jugador.partides)}
+                                ${ompleTaulaRonda(jugador.partides,false)}
                             </tbody>
                         </table>
                                        
@@ -466,7 +466,7 @@ function renderJugador(jugador) {
   });
   // Agregar evento al botón de ordenar
 
-  var ordenada = true;
+  var ordenada = false;
   document.getElementById("ordenarBoton").addEventListener("click", () => {
     // Llama a la función de ordenar la tabla por la segunda columna (Edad)
     if (!ordenada) {
@@ -476,7 +476,7 @@ function renderJugador(jugador) {
     } else {
       var tbody = document.getElementById("tbodyordre");
       tbody.innerHTML = "";
-      tbody.innerHTML += ompleTaulaRonda(jugador.partides);
+      tbody.innerHTML += ompleTaulaRonda(jugador.partides,true);
       ordenada = false;
       afegeixEsdeveniments();
     }
@@ -1420,7 +1420,7 @@ function renderRondes(ronda) {
   document.getElementById("content").innerHTML += rondaTemplate;
 }
 
-function ompleTaulaRonda(partidesRonda) {
+function ompleTaulaRonda(partidesRonda,ordredata) {
   // console.log(partidesRonda)
   const datesAsObjects = partidesRonda.map((date) => {
     const parts = date.Data.split("/");
@@ -1434,19 +1434,27 @@ function ompleTaulaRonda(partidesRonda) {
 
     return data1.getTime() - data2.getTime();
   }
-  partidesRonda.sort(compareDates);
   var taula = "";
-  function ordreRondes(a, b) {
-    return a.Ronda - b.Ronda;
-  }
-  var nojugades = partidesRonda
+  var nojugades
+
+  if(ordredata){
+    partidesRonda.sort(compareDates);
+    nojugades = partidesRonda
     .filter((p) => p.Suma_punts == "")
     .sort(ordreRondes);
-  partidesRonda.forEach((obj, index) => {
-    if (obj.Suma_punts == "") {
-      partidesRonda[index] = nojugades.shift();
-    }
-  });
+    partidesRonda.forEach((obj, index) => {
+      if (obj.Suma_punts == "") {
+        partidesRonda[index] = nojugades.shift();
+      }
+    });
+  }else{
+    partidesRonda.sort(ordreRondes)
+  }
+  
+  function ordreRondes(a, b) {
+    return a.Ronda - b.Ronda;
+  } 
+  
   partidesRonda.forEach((partida) => {
     const llistaTemplate = ` 
   
