@@ -1435,11 +1435,11 @@ function ompleTaulaRonda(partidesRonda,ordredata) {
     return data1.getTime() - data2.getTime();
   }
   var taula = "";
-  var nojugades
+ 
 
   if(ordredata){
     partidesRonda.sort(compareDates);
-    nojugades = partidesRonda
+    var nojugades = partidesRonda
     .filter((p) => p.Suma_punts == "")
     .sort(ordreRondes);
     partidesRonda.forEach((obj, index) => {
@@ -1447,8 +1447,6 @@ function ompleTaulaRonda(partidesRonda,ordredata) {
         partidesRonda[index] = nojugades.shift();
       }
     });
-  }else{
-    partidesRonda.sort(ordreRondes)
   }
   
   function ordreRondes(a, b) {
