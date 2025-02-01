@@ -113,7 +113,7 @@ function loadContent(vista) {
 
       break;
       case "fassers":
-      navbarTitle.innerHTML = "Classificació fassers";
+      navbarTitle.innerHTML = "Classificació 🌴";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
       div.id = "subcontent";
@@ -159,7 +159,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
 
       break;
       case "passeres":
-        navbarTitle.innerHTML = "Classificació pàsseres";
+        navbarTitle.innerHTML = "Classificació 🐦‍⬛";
         contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
         var div = document.createElement("div");
         div.id = "subcontent";
