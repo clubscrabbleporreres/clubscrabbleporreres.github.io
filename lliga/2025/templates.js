@@ -1342,6 +1342,13 @@ function renderRondes(ronda) {
                           <div class="h5  flex-grow-1" >Ronda ${
                             ronda.Ronda
                           }</div>
+                           <span class="badge text-bg-secondary ${
+                            ronda.Estat != "none" ? "" : "d-none"
+                          } me-1">
+                          ${ronda.Jugades}
+                          /
+                          ${ronda.Programades}
+                          </span>
                           <span class="badge text-bg-${
                             ronda.Estat == "Ronda tancada"
                               ? "danger"
@@ -1353,9 +1360,7 @@ function renderRondes(ronda) {
                       <p><i>${
                         ronda.Data_inici
                       }</i></p>
-                      <p>${ronda.Jugades} partides jugades de ${
-    ronda.Programades
-  }</p>                        
+                                     
                   </div>
                   <div class="row">
                     <div class="dropdown-toggle" data-bs-target="#collapseronda${
