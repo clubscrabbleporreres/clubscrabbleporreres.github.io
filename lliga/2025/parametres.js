@@ -148,8 +148,8 @@ function loadPagina(vista) {
     loadContent(parameterVista ? vistaPredet : ["trobades"]);
     updateHistory(parameterVista ? vistaPredet : ["trobades"]);
   } else {
-    loadContent(parameterVista ? vistaPredet : ["classificacio"]);
-    updateHistory(parameterVista ? vistaPredet : ["classificacio"]);
+    loadContent(parameterVista ? vistaPredet : ["rondes"]);
+    updateHistory(parameterVista ? vistaPredet : ["rondes"]);
   }
   //}
 }
