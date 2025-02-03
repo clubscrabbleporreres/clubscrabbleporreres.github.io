@@ -9,6 +9,7 @@ function swipe() {
   let partidaActual;
   let vistaActual;
   let indexactual;
+  let grupactual;
 
   var min_horizontal_move = 100;
   var max_vertical_move = 40;
@@ -70,16 +71,17 @@ function swipe() {
           vistaAnterior = vistaActual;
         }
       } else if (vistaActual == "ronda") {
-        if (paginaActual[1] < rondes.length) {
-          paginaSeguent = parseInt(paginaActual[1]) + 1;
-          if (paginaActual[1] == 1) {
-            paginaAnterior = rondes.length;
+        grupactual = paginaActual[1]["grup"]
+        if (paginaActual[1]["ronda"] < rondes.length) {
+          paginaSeguent = {ronda:parseInt(paginaActual[1]["ronda"]) + 1,grup:grupactual};
+          if (paginaActual[1]["ronda"] == 1) {
+            paginaAnterior = {ronda:rondes.length,grup:grupactual};
           } else {
-            paginaAnterior = parseInt(paginaActual[1]) - 1;
+            paginaAnterior = {ronda:parseInt(paginaActual[1]["ronda"]) - 1,grup:grupactual};
           }
         } else {
-          paginaSeguent = 1;
-          paginaAnterior = parseInt(paginaActual[1]) - 1;
+          paginaSeguent =  {ronda: 1,grup:grupactual};
+          paginaAnterior = ronda:parseInt(paginaActual[1]["ronda"]) - 1,grup:grupactual};
         }
         vistaSeguent = vistaActual;
         vistaAnterior = vistaActual;
