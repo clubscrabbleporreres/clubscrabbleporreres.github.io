@@ -1350,7 +1350,7 @@ function renderRondes(ronda) {
     ronda.Estat
   }</span>
                       </div>
-                      <p><i>Data prevista: ${
+                      <p><i>${
                         ronda.Data_inici
                       }</i></p>
                       <p>${ronda.Jugades} partides jugades de ${
@@ -1396,6 +1396,7 @@ function renderRondes(ronda) {
                     <li class="list-group-item d-flex justify-content-between align-items-top">
                       <div>Jugador de la millor partida:</div>
                       <div>${ronda.Jugador_Partida.split("-")
+                        .filter((nom)=>nom!="No juga")
                         .map((nom) => '<div class="nom">' + nom + "</div>")
                         .join("")}</div>                    	
                     </li>
@@ -1417,7 +1418,7 @@ function renderRondes(ronda) {
           <div class="card-footer text-body-secondary">
             <div class="d-flex justify-content-around">
              <button type="button" class="btn btn-primary detallronda" data-id="${
-               ronda.Ronda}" data-grup="passeres">Pàsseres</button>
+               ronda.Ronda}" data-grup="pàsseres">Pàsseres</button>
               <button type="button" class="btn btn-primary detallronda" data-id="${
                ronda.Ronda}" data-grup="fassers">Fassers</button>
               </div> 
