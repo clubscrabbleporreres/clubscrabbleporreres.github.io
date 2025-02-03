@@ -16,17 +16,15 @@ let jugadorDefault = {
 let jugadorDesat = {};
 
 const vistesGenerals = [
+  "rondes",
+  "trobades", 
   "passeres",
   "fassers",
   "scrabbles",
   "jugada",
   "partida",
-  "conjunta",
-  "social",
-  "immediatesa",
+  "conjunta",  
   "rondes",
-  "trobades",
-  "passeres",
 ];
 let vistesPartides = [];
 const vistesNoSwipe = ["imatge", "formulari", "assistencia"];
