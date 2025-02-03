@@ -108,7 +108,7 @@ function swipe() {
         } else {
           // Per a un gest de desplaçament cap a la dreta
           //console.log(paginaActual)
-          resumPrevi(vistaAnterior, paginaAnterior.toString());
+          resumPrevi(vistaAnterior, paginaAnterior);
         }
       }
     }
