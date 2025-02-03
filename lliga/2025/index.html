@@ -97,9 +97,14 @@
           <h6 class="dropdown-header text-warning">Enllaços</h6>
         </li>
         <li><a class="dropdown-item navApp" href="#reglament">Reglament</a></li>
-        <li><a class="dropdown-item" href="https://manacup.github.io/rellotgeScrabble/index.html" target="_blank">Rellotge</a></li>
-        <li><a class="dropdown-item" href="https://diccionari.totescrable.cat/validador/" target="_blank">Validador</a></li>
-        <!-- <li><a class="dropdown-item" href="#apps">Aplicacions</a></li> -->
+        <li><a class="dropdown-item" href="https://manacup.github.io/rellotgeScrabble/index.html"
+            target="_blank">Rellotge</a></li>
+        <li><a class="dropdown-item" href="https://diccionari.totescrable.cat/validador/" target="_blank">Validador</a>
+        </li>
+        <li><a class="dropdown-item" href="/index.html">Aplicacions i enllaços</a></li>
+        <li><a class="dropdown-item"
+            href="https://drive.google.com/file/d/1mrocPYe5O_AeJduNzHzR5ZkulbydGFjf/view?usp=sharing">Full
+            d'anotacions</a></li>
         <li>
           <hr class="dropdown-divider">
         </li>
@@ -132,7 +137,7 @@
       <li class="nav-item"><a class="nav-link navApp" href="#jugada">Millor jugada</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#partida">Millor partida individual</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#conjunta">Millor partida conjunta</a></li>
- <!--      <li class="nav-item"><a class="nav-link navApp" href="#social">Participació social</a></li>
+      <!--      <li class="nav-item"><a class="nav-link navApp" href="#social">Participació social</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#immediatesa">Menys procrastinador</a></li> -->
       <li class="nav-item"><a class="nav-link navApp" href="#rondes">Rondes</a></li>
       <li class="nav-item me-2"><a class="nav-link navApp" href="#trobades">Trobades</a></li>
@@ -187,7 +192,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class=" mb-3">
             <div class="row">
               <div class="col-10"><i class="bi bi-segmented-nav me-2"></i>
@@ -536,7 +541,7 @@
   <script>
     const queryString = window.location.search;
     const urlParams = Object.fromEntries(new URLSearchParams(queryString));
-console.log(urlParams)
+    console.log(urlParams)
     const macroURL = "https://script.google.com/macros/s/AKfycbxGxs3BYaEvQObYn_LQd0Z151x7AbrGwsHXue70Ta0uDgsRkfCTPcSfc7ar_jxgFltG/exec";
     let parameterId = urlParams.id || "no";
     let parameterVista = urlParams.vista;
@@ -552,15 +557,15 @@ console.log(urlParams)
       document.getElementById("pestanyes").checked = true;
       setStoredPestanyes("true");
     }
-/*     document.getElementById("turbo").addEventListener("change",(e)=>{
-      localStorage.setItem("turbo",e.checked?"true":"false")
-    }) 
-document.addEventListener("DOMContentLoaded",()=>{ 
-  document.getElementById("turbo").checked=localStorage.getItem("turbo")=="true"? true: false 
-}) */
+    /*     document.getElementById("turbo").addEventListener("change",(e)=>{
+          localStorage.setItem("turbo",e.checked?"true":"false")
+        }) 
+    document.addEventListener("DOMContentLoaded",()=>{ 
+      document.getElementById("turbo").checked=localStorage.getItem("turbo")=="true"? true: false 
+    }) */
   </script>
   <script src="carregant.js"></script>
-  <script type="module" src="moduls.js"></script>  
+  <script type="module" src="moduls.js"></script>
   <script src="templates.js"></script>
   <script src="respostes.js"></script>
   <script src="trobades.js"></script>
