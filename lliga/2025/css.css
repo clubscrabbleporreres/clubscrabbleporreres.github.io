@@ -11,7 +11,7 @@
 [data-bs-theme="auto"] .bg-body {
   background-color: var(--bs-light) !important;
 }
-[data-bs-theme="light"] {
+/* [data-bs-theme="light"] {
   --bs-border-radius: 1rem !important;
 }
 [data-bs-theme="dark"] {
@@ -19,7 +19,7 @@
 }
 [data-bs-theme="auto"] {
   --bs-border-radius: 1rem !important;
-}
+} */
 html,
 body {
   overscroll-behavior-y: contain;

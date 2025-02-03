@@ -1330,7 +1330,7 @@ function ordenarLlistaPunts() {
 function renderRondes(ronda) {
   var partidesRonda = aparellaments.filter((p) => p.Ronda == ronda.Ronda);
   const rondaTemplate = `
-      <div class="p-1 entrada">
+      <div class="p-3 entrada">
           <div class="card  ${
             ronda.Estat == "Ronda tancada" ? "border-danger" : ""
           }" >
