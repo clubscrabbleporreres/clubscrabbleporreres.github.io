@@ -54,7 +54,7 @@ function swipe() {
             paginaAnterior = (parseInt(paginaActual[1]) - 1).toString();
           }
         } else {
-          paginaSeguent = 1.toString();
+          paginaSeguent = "1";
           paginaAnterior = (parseInt(paginaActual[1]) - 1).toString();
         }
         vistaSeguent = vistaActual;
