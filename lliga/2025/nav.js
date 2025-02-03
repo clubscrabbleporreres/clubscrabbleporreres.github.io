@@ -268,7 +268,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       }
       aparellaments.sort(ordregrup);
 
-      var partidesfilt = aparellaments.filter((j) => j.Ronda == options&&j.Grup==options.grup);
+      var partidesfilt = aparellaments.filter((j) => j.Ronda == options.ronda && j.Grup==options.grup);
       //console.log(partidesfilt)
       /* var partidesfiltagrupades = groupById(partidesfilt);
       console.log(partidesfiltagrupades); */
