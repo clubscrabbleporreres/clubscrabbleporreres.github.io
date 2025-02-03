@@ -1345,7 +1345,7 @@ function renderRondes(ronda) {
                           <span class="badge text-bg-${
                             ronda.Estat == "Ronda tancada"
                               ? "danger"
-                              : "primary"
+                              : "success"
                           } ${ronda.Estat != "none" ? "" : "d-none"}">${
     ronda.Estat
   }</span>
