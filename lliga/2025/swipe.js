@@ -81,7 +81,7 @@ function swipe() {
           }
         } else {
           paginaSeguent =  {ronda: 1,grup:grupactual};
-          paginaAnterior = ronda:parseInt(paginaActual[1]["ronda"]) - 1,grup:grupactual};
+          paginaAnterior = {ronda:parseInt(paginaActual[1]["ronda"]) - 1,grup:grupactual};
         }
         vistaSeguent = vistaActual;
         vistaAnterior = vistaActual;
