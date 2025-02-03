@@ -1335,7 +1335,7 @@ function renderRondes(ronda) {
             ronda.Estat == "Ronda tancada" ? "border-danger" : ""
           }" >
               <div class="card-body">
-                  <div class="row detallronda" data-id="${
+                  <div class="row" data-id="${
                     ronda.Ronda
                   }">                    
                       <div class="d-flex align-items-center">
@@ -1350,8 +1350,8 @@ function renderRondes(ronda) {
     ronda.Estat
   }</span>
                       </div>
-                      <p><i>Data límit per enviar el resultat: ${
-                        ronda.Data_fi
+                      <p><i>Data prevista: ${
+                        ronda.Data_inici
                       }</i></p>
                       <p>${ronda.Jugades} partides jugades de ${
     ronda.Programades
@@ -1400,13 +1400,13 @@ function renderRondes(ronda) {
                         .join("")}</div>                    	
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-top">
-                      <div>Major número de Scrabbles:</div>
+                      <div>Major nombre de Scrabbles:</div>
                       <div>${
                         ronda.Major_num_Scrabbles
                       }</div>                    	
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-top">
-                      <div>Jugador amb major núm. de Scrabbles:</div>
+                      <div>Jugador més Scrabbles:</div>
                       <div>${ronda.Jug_Scrabbles.split("-")
                         .map((nom) => '<div class="nom">' + nom + "</div>")
                         .join("")}</div>                    	
@@ -1414,6 +1414,14 @@ function renderRondes(ronda) {
                   </ul>
             </div>    
           </div>
+          <div class="card-footer text-body-secondary">
+            <div class="d-flex justify-content-around">
+             <button type="button" class="btn btn-primary detallronda" data-id="${
+               ronda.Ronda}" data-grup="passeres">Pàsseres</button>
+              <button type="button" class="btn btn-primary detallronda" data-id="${
+               ronda.Ronda}" data-grup="fassers">Fassers</button>
+              </div> 
+              </div>
       </div>
   
       `;

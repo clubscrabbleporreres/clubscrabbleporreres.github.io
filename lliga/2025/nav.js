@@ -251,7 +251,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
 
       break;
     case "ronda":
-      navbarTitle.innerHTML = "Ronda " + options;
+      navbarTitle.innerHTML = "Ronda " + options.ronda;
 
       function ordregrup(a, b)  {
         const nameA = a.Grup.toUpperCase(); // ignore upper and lowercase
@@ -268,7 +268,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       }
       aparellaments.sort(ordregrup);
 
-      var partidesfilt = aparellaments.filter((j) => j.Ronda == options);
+      var partidesfilt = aparellaments.filter((j) => j.Ronda == options&&j.Grup==options.grup);
       //console.log(partidesfilt)
       /* var partidesfiltagrupades = groupById(partidesfilt);
       console.log(partidesfiltagrupades); */
@@ -520,10 +520,11 @@ function afegeixEsdeveniments() {
   });
   contentDiv.querySelectorAll(".detallronda").forEach((ronda) => {
     var id = ronda.dataset.id;
+    var grup = ronda.dataset.grup;
     //console.log(id)
     ronda.addEventListener("click", () => {
-      loadContent(["ronda", id]);
-      updateHistory(["ronda", id]);
+      loadContent(["ronda", {ronda:id,grup:grup}]);
+      updateHistory(["ronda", {ronda:id,grup:grup}]);
     });
   });
   contentDiv.querySelectorAll(".zoomable").forEach((image) => {
