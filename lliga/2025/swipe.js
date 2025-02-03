@@ -72,6 +72,9 @@ function swipe() {
         }
       } else if (vistaActual == "ronda") {
         grupactual = paginaActual[1]["grup"]
+        console.log(grupactual)
+        console.log(paginaActual[1])
+        console.log(paginaActual[1]["ronda"])
         if (paginaActual[1]["ronda"] < rondes.length) {
           paginaSeguent = {ronda:parseInt(paginaActual[1]["ronda"]) + 1,grup:grupactual};
           if (paginaActual[1]["ronda"] == 1) {
