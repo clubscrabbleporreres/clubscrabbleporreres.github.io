@@ -47,15 +47,15 @@ function swipe() {
 
       if (vistaActual == "detall") {
         if (parseInt(paginaActual[1]) < dades.length) {
-          paginaSeguent = parseInt(paginaActual[1]) + 1;
+          paginaSeguent = (parseInt(paginaActual[1]) + 1).toString();
           if (parseInt(paginaActual[1]) == 1) {
-            paginaAnterior = dades.length;
+            paginaAnterior = dades.length.toString();
           } else {
-            paginaAnterior = parseInt(paginaActual[1]) - 1;
+            paginaAnterior = (parseInt(paginaActual[1]) - 1).toString();
           }
         } else {
-          paginaSeguent = 1;
-          paginaAnterior = parseInt(paginaActual[1]) - 1;
+          paginaSeguent = 1.toString();
+          paginaAnterior = (parseInt(paginaActual[1]) - 1).toString();
         }
         vistaSeguent = vistaActual;
         vistaAnterior = vistaActual;
@@ -65,8 +65,8 @@ function swipe() {
         indexactual = vistesPartides.indexOf(partidaActual[1]);
 
         if (indexactual < vistesPartides.length) {
-          paginaSeguent = vistesPartides[indexactual + 1];
-          paginaAnterior = vistesPartides[indexactual - 1];
+          paginaSeguent = vistesPartides[indexactual + 1].toString();
+          paginaAnterior = vistesPartides[indexactual - 1].toString();
           vistaSeguent = vistaActual;
           vistaAnterior = vistaActual;
         }
@@ -102,7 +102,7 @@ function swipe() {
         if (move_x < 0) {
           // Per a un gest de desplaçament cap a l'esquerra
           //console.log(vistaActual,paginaAnterior)
-          resumSeguent(vistaSeguent, paginaSeguent.toString());
+          resumSeguent(vistaSeguent, paginaSeguent);
 
           console.log(event);
         } else {
