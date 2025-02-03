@@ -1413,7 +1413,7 @@ function renderRondes(ronda) {
                     </li>
                   </ul>
             </div>    
-          </div>
+          
           <div class="card-footer text-body-secondary">
             <div class="d-flex justify-content-around">
              <button type="button" class="btn btn-primary detallronda" data-id="${
@@ -1421,7 +1421,8 @@ function renderRondes(ronda) {
               <button type="button" class="btn btn-primary detallronda" data-id="${
                ronda.Ronda}" data-grup="fassers">Fassers</button>
               </div> 
-              </div>
+            </div>
+         
       </div>
   
       `;
