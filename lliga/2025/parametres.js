@@ -57,7 +57,7 @@ function carregaUsuari() {
 document.addEventListener("DOMContentLoaded", iniciJSON(false));
 
 function iniciJSON(turbo,vista) {
-  
+  admin()
   carregant();
   carrega = 0;
   // Crida a l'API del Google Apps Script
@@ -159,4 +159,8 @@ function preventFormSubmit() {
       event.preventDefault();
     });
   }
+}
+function admin(){
+  if(jugadorDesat=="Beatriu Defior")
+  document.getElementById("btneditatrobada").classList.remove("d-none")
 }
