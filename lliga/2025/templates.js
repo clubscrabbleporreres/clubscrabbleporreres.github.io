@@ -661,7 +661,7 @@ function renderClassificacio(jugador) {
     jugador.percentatgeVictories
   }">
                           ${jugador.Rondes_pendents}/${
-    jugador.partides.filter((p) => p.Estat != "none").filter(r=>r.Jugador1!="No juga"||r.Jugador2!="No juga").length
+    jugador.partides.filter((p) => p.Estat != "none").filter((r)=>r.Jugador1!="No juga").filter((d)=>d.Jugador2!="No juga").length
   }
                         </span>  
                       </div>
