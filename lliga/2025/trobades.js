@@ -531,7 +531,7 @@ function editaTrobadaForm(trobada) {
             placeholder="maps"></div>
     <div class="mb-2"><label>Sopar?</label>
         <div class="form-check form-switch">
-        <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"
+        <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"${trobada.Sopar=="TRUE"?"checked":""}
                 class="form-check-input"></div>
     </div>
 
@@ -546,7 +546,9 @@ function editaTrobadaForm(trobada) {
 </form>
 `
 document.getElementById("content").innerHTML += formTemplate
-
+document.getElementById("SoparTRUE").addEventListener("change",function(){
+  this.checked?this.value="TRUE":this.value=""
+})
 }
 
 async function editaTrobada() {
