@@ -509,7 +509,7 @@ function editaTrobadaForm(trobada) {
   console.log(trobada)
   const formTemplate = `
   <form id="formulari_Calendari_trobades" class="container-fluid needs-validation">
-    <div class="mb-2"><label class="col-form-label">max_ronda:</label>
+    <div class="mb-2"><label class="col-form-label">Ronda (si es juguen més d'una ronda posar la més alta):</label>
     <input type="number" class="form-control" value="${trobada.max_ronda||null}"
             name="max_ronda" placeholder="max_ronda"></div>
     <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada||null}" name="ID_trobada"></div>
