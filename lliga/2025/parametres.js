@@ -57,7 +57,7 @@ function carregaUsuari() {
 document.addEventListener("DOMContentLoaded", iniciJSON(false));
 
 function iniciJSON(turbo,vista) {
-  admin()
+  
   carregant();
   carrega = 0;
   // Crida a l'API del Google Apps Script
@@ -123,6 +123,7 @@ function iniciJSON(turbo,vista) {
       loadPagina(vista);
       document.getElementById("nomcampionat").innerText = data.campionat;
       document.getElementById("temporada").innerText = data.temporada;
+      admin()
     })
     .catch((error) => console.error("Error:", error));
 }
