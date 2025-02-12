@@ -162,5 +162,7 @@ function preventFormSubmit() {
 }
 function admin(){
   if(jugadorDesat.Nom=="Beatriu Defior")
+ { 
   document.getElementById("btneditatrobada").classList.remove("d-none")
+}
 }
