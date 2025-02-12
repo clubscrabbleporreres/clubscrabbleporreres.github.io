@@ -247,7 +247,7 @@ function renderFormTrobada(trobada) {
                 </div>
               </div>
               <div class="row">
-                <div class="col-10 mb-3">Estic disponible per una partida</div>
+                <div class="col-10 mb-3">Estic disponible per a una partida</div>
                 <div class="col-2 text-end">
                   <div class="form-check form-switch">
                     <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="Primera_partida_disp"  value="1a Partida " data-bs-config='{"hide":true}' data-bs-target="#adversaripacte1" onchange="this.checked?document.getElementById('jugPacte1').value='disponible':''">
