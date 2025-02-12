@@ -34,3 +34,17 @@ const observer = new MutationObserver(() => {
 // passing it the element to observe, and the options object
 observer.observe(elementToObserve, { subtree: true, childList: true });
 console.log("observant...");
+
+const desaJugLocalSt = (e) => {
+  var jugadorTriat = e.value;
+  jugadorDesat = dades.filter((j) => j.ID == jugadorTriat)[0];
+  renderUserCard(jugadorDesat);
+  if (isLocalStorageAvailable()) {
+    // available
+    localStorage.setItem("jugador", e.value);
+  }
+  if (document.getElementById("botoAssisteix") != null) {
+    document.getElementById("botoAssisteix").classList.remove("d-none");
+    document.getElementById("botoAssisteix2").classList.add("d-none");
+  }
+}
