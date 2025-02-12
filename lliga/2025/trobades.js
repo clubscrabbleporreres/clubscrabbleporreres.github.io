@@ -551,7 +551,7 @@ function editaTrobadaForm(trobada) {
 `
 document.getElementById("content").innerHTML += formTemplate
 document.getElementById("SoparTRUE").addEventListener("change",function(){
-  this.checked?this.value="TRUE":this.value=""
+  this.checked?this.value="TRUE":this.value="FALSE"
 })
 }
 
