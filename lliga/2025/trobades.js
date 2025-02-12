@@ -541,8 +541,12 @@ function editaTrobadaForm(trobada) {
             name="Rondes_a_jugar" placeholder="Rondes_a_jugar" value="${trobada.Rondes_a_jugar||null}"></div>
     
     
-    <div class="modal-footer">      
-      <input id="botodesatrobada" type="button" value="Desa" class="btn btn-primary" onclick="editaTrobada()"></div>
+    <div class="modal-footer"> 
+    
+          <button id="botodesatrobada" class="btn btn-primary" type="submit" onclick="editaTrobada()">
+             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="spnbtn3"></span>
+             Modifica la trobada
+          </button>
 </form>
 `
 document.getElementById("content").innerHTML += formTemplate
@@ -554,7 +558,8 @@ document.getElementById("SoparTRUE").addEventListener("change",function(){
 async function editaTrobada() {
   preventFormSubmit();
   let form = document.getElementById("formulari_Calendari_trobades");
-  //const obj = await ParseFormObjectForGAS(form); // Heare, this library is used.
+  document.getElementById("botodesatrobada").disabled = true;
+  document.getElementById("spnbtn3").classList.remove("d-none");
   const dataform = new FormData(form);
   const values = Object.fromEntries(dataform.entries());
 
