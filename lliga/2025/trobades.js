@@ -517,8 +517,8 @@ function editaTrobadaForm(trobada) {
     <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada||null}"></div>
     <div class="mb-2">
     <label class="col-form-label">Data:</label>
-    <input type="datetime-local" class="form-control"
-            name="DataHora" placeholder="Data i hora" value="${trobada.DataHora||new dateTime()}"></div> 
+    <input type="datetime-local" class="form-control" id="DataHora"
+            name="DataHora" placeholder="Data i hora" value="${trobada.DataHora||new Date().toISOString().split("T").join(" ").split(".")[0]}"></div> 
             
     <div class="mb-2"><label class="col-form-label">Lloc:</label>
     <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc||null}"
@@ -546,6 +546,7 @@ function editaTrobadaForm(trobada) {
 </form>
 `
 document.getElementById("content").innerHTML += formTemplate
+
 }
 
 async function editaTrobada() {
