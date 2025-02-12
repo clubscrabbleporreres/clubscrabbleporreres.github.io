@@ -1,4 +1,10 @@
 function renderUserCard(jugadorDesat) {
+  if(jugadorDesat.Nom=="Beatriu Defior")
+    { 
+     document.getElementById("btneditatrobada").classList.remove("d-none")
+   }else{
+    document.getElementById("btneditatrobada").classList.add("d-none")
+   }
   const menuTemplate = `
      <a id="linkuserpref" class=" position-absolute top-10 end-0 translate-middle  pt-5" href="${
        urlApp + "&id=" + jugadorDesat.ID + "&mostrapestanyes=no"

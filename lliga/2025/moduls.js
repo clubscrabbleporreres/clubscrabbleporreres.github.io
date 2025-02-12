@@ -12,6 +12,7 @@ const opts = {
       document.getElementById("botoAssisteix").classList.remove("d-none");
       document.getElementById("botoAssisteix2").classList.add("d-none");
     }
+    
   },
 };
 

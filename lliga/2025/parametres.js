@@ -53,6 +53,7 @@ function carregaUsuari() {
     jugadorDesat =
       dades.filter((j) => j.ID == parameterId)[0] || jugadorDefault;
   }
+  
 }
 document.addEventListener("DOMContentLoaded", iniciJSON(false));
 
@@ -123,7 +124,7 @@ function iniciJSON(turbo,vista) {
       loadPagina(vista);
       document.getElementById("nomcampionat").innerText = data.campionat;
       document.getElementById("temporada").innerText = data.temporada;
-      admin()
+      
     })
     .catch((error) => console.error("Error:", error));
 }
