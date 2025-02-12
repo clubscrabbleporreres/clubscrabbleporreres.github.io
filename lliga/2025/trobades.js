@@ -531,7 +531,7 @@ function editaTrobadaForm(trobada) {
             placeholder="maps"></div>
     <div class="mb-2"><label>Sopar?</label>
         <div class="form-check form-switch">
-        <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"${trobada.Sopar=="TRUE"?"checked":""}
+        <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"
                 class="form-check-input"></div>
     </div>
 
