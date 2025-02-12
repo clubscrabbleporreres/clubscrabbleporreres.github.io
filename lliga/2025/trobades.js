@@ -509,39 +509,36 @@ function editaTrobadaForm(trobada) {
   const formTemplate = `
   <form id="formulari_Calendari_trobades" class="container-fluid needs-validation">
     <div class="mb-2"><label class="col-form-label">max_ronda:</label>
-    <input type="number" class="form-control" value="${trobada.max_ronda}"
-            name="max_ronda" placeholder="max_ronda"  step="1"></div>
-    <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada}" name="ID_trobada"></div>
+    <input type="number" class="form-control" value="${trobada.max_ronda||null}"
+            name="max_ronda" placeholder="max_ronda"></div>
+    <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada||null}" name="ID_trobada"></div>
     <div class="mb-2">
     <label class="col-form-label">Títol de la trobada:</label>
-    <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada}"></div>
+    <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada||null}"></div>
     <div class="mb-2">
     <label class="col-form-label">Data:</label>
     <input type="datetime-local" class="form-control"
-            name="Data" placeholder="Data i hora" value="${trobada.Data}"></div> 
+            name="DataHora" placeholder="Data i hora" value="${trobada.DataHora||new dateTime()}"></div> 
             
     <div class="mb-2"><label class="col-form-label">Lloc:</label>
-    <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc}"
+    <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc||null}"
             placeholder="Lloc"></div>
     <div class="mb-2"><label class="col-form-label">adreça:</label>
-    <input type="text" class="form-control" name="adreça"  value="${trobada.adreça}"
+    <input type="text" class="form-control" name="adreça"  value="${trobada.adreça||null}"
             placeholder="adreça" ></div>
     <div class="mb-2"><label class="col-form-label">maps:</label>
-    <input type="url" class="form-control" name="maps"  value="${trobada.maps}"
+    <input type="url" class="form-control" name="maps"  value="${trobada.maps||null}"
             placeholder="maps"></div>
     <div class="mb-2"><label>Sopar?</label>
         <div class="form-check form-switch">
         <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"
                 class="form-check-input"></div>
     </div>
-    <div class="mb-2"><label>Mostra a l'applicació?</label>
-        <div class="form-check form-switch"><input type="checkbox" name="Mostra" id="MostraTRUE"  value="${trobada.Mostra}"
-                class="form-check-input"></div>
-    </div>
+
    
     <div class="mb-2"><label class="col-form-label">Rondes_a_jugar:</label>
     <input type="number" class="form-control"
-            name="Rondes_a_jugar" placeholder="Rondes_a_jugar" step="1"  value="${trobada.Rondes_a_jugar}"></div>
+            name="Rondes_a_jugar" placeholder="Rondes_a_jugar" value="${trobada.Rondes_a_jugar||null}"></div>
     
     
     <div class="modal-footer">      
