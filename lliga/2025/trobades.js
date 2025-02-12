@@ -1,16 +1,16 @@
-var  timezone, startTime, endTime, title, description, venueName, address, city, state
-Date.prototype.addHours = function(h) {
-  this.setTime(this.getTime() + (h*60*60*1000));
+var timezone, startTime, endTime, title, description, venueName, address, city, state
+Date.prototype.addHours = function (h) {
+  this.setTime(this.getTime() + (h * 60 * 60 * 1000));
   return this;
 }
 function renderTrobada(trobada) {
-  startTime = new Date(ExcelDateToJSDateNormal(parseFloat(trobada.horautc.replace(/,/g, '.')),true)).addHours(-1)
-  endTime = new Date(ExcelDateToJSDateNormal(parseFloat(trobada.horautc.replace(/,/g, '.')),true)).addHours(1)
+  startTime = new Date(ExcelDateToJSDateNormal(parseFloat(trobada.horautc.replace(/,/g, '.')), true)).addHours(-1)
+  endTime = new Date(ExcelDateToJSDateNormal(parseFloat(trobada.horautc.replace(/,/g, '.')), true)).addHours(1)
   title = trobada.Trobada + "lliga Scrabble Porreres"
   address = trobada.adreça
   venueName = trobada.Lloc
 
-  console.log(trobada.horautc,startTime,endTime)
+  console.log(trobada.horautc, startTime, endTime)
 
   if (trobada === false) {
     //document.getElementById("tabTrobades").classList.add("disabled")
@@ -34,15 +34,13 @@ function renderTrobada(trobada) {
                     <i class="bi bi-calendar-plus"></i>
                   </a>
                       <div class="h5 mb-3">${trobada.Trobada}</div>
-                      <button id="botoAssisteix" class="btn btn-lg btn-danger ${
-                        jugadorDesat.ID == 0 ? "d-none" : ""
-                      }" onclick="loadContent(['assistencia']);updateHistory(['assistencia']);">
+                      <button id="botoAssisteix" class="btn btn-lg btn-danger ${jugadorDesat.ID == 0 ? "d-none" : ""
+      }" onclick="loadContent(['assistencia']);updateHistory(['assistencia']);">
                           <i class="bi bi-hand-index"></i>
                           Confirma l'assistència
                       </button>
-                      <button id="botoAssisteix2" class="btn btn-lg btn-danger ${
-                        jugadorDesat.ID != 0 ? "d-none" : ""
-                      }" data-bs-toggle="modal" data-bs-target="#desajug" aria-expanded="false"
+                      <button id="botoAssisteix2" class="btn btn-lg btn-danger ${jugadorDesat.ID != 0 ? "d-none" : ""
+      }" data-bs-toggle="modal" data-bs-target="#desajug" aria-expanded="false"
               aria-controls="desajug">
                           <i class="bi bi-hand-index"></i>
                           Confirma l'assistència
@@ -85,9 +83,8 @@ function renderTrobada(trobada) {
                   </div>
                   <div class="card mb-3"> 
               <div class="card-body">
-                  <p>Assistiran ${
-                    assistents.filter((as) => as.Assistencia == "si").length
-                  } dels ${assistents.length - 1} que han avisat.</p>
+                  <p>Assistiran ${assistents.filter((as) => as.Assistencia == "si").length
+      } dels ${assistents.length - 1} que han avisat.</p>
                   <p>${sopar ?? ""}</p>
               </div>
           </div>
@@ -117,46 +114,39 @@ function renderTrobada(trobada) {
     assistents.forEach((assistent) => {
       const assistentsTemplate = `
     <li id="itemAssistents" class="list-group-item">
-              <h5 class="nom ${
-                assistent.Assistencia != "si" ? " text-secondary" : ""
-              }">${assistent.Nom}</h5>
-              <span class="badge text-bg-${
-                assistent.Primera_partida === "1a Partida disponible"
-                  ? "success missatge"
-                  : "primary"
-              } ${
-        assistent.Primera_partida.toString() === "NaN" ? "d-none" : ""
-      }" data-nom="${assistent.Nom}">${assistent.Primera_partida}</span>
-              <span class="badge text-bg-${
-                assistent.Segona_partida === "2a Partida disponible"
-                  ? "success missatge"
-                  : "primary"
-              } ${
-        assistent.Segona_partida.toString() === "NaN" ? "d-none" : ""
-      }" data-nom="${assistent.Nom}">${assistent.Segona_partida}</span>
-              <span class="badge text-bg-info ${
-                assistent.Joc != "Joc" ? "d-none" : ""
-              }">${assistent.Joc}</span>
-              <span class="badge text-bg-secondary ${
-                assistent.Sopar != "Quedaré a sopar" ? "d-none" : ""
-              }">${assistent.Sopar}</span>
+              <h5 class="nom ${assistent.Assistencia != "si" ? " text-secondary" : ""
+        }">${assistent.Nom}</h5>
+              <span class="badge text-bg-${assistent.Primera_partida === "1a Partida disponible"
+          ? "success missatge"
+          : "primary"
+        } ${assistent.Primera_partida.toString() === "NaN" ? "d-none" : ""
+        }" data-nom="${assistent.Nom}">${assistent.Primera_partida}</span>
+              <span class="badge text-bg-${assistent.Segona_partida === "2a Partida disponible"
+          ? "success missatge"
+          : "primary"
+        } ${assistent.Segona_partida.toString() === "NaN" ? "d-none" : ""
+        }" data-nom="${assistent.Nom}">${assistent.Segona_partida}</span>
+              <span class="badge text-bg-info ${assistent.Joc != "Joc" ? "d-none" : ""
+        }">${assistent.Joc}</span>
+              <span class="badge text-bg-secondary ${assistent.Sopar != "Quedaré a sopar" ? "d-none" : ""
+        }">${assistent.Sopar}</span>
           </li>
     `;
       document.getElementById("ulListAssist").innerHTML += assistentsTemplate;
     });
-  
-  document.getElementById('downloadICS').addEventListener('click', () => {
-    createDownloadICSFile(
-      'Europe/Madrid',
-      startTime,
-      endTime,
-      title,
-      '',
-      venueName,
-      address,
-      '',
-      ''
-    );  
+
+    document.getElementById('downloadICS').addEventListener('click', () => {
+      createDownloadICSFile(
+        'Europe/Madrid',
+        startTime,
+        endTime,
+        title,
+        '',
+        venueName,
+        address,
+        '',
+        ''
+      );
     });
   }
 }
@@ -169,17 +159,15 @@ function renderFormTrobada(trobada) {
 
   const trobadaTemplate = `
   <form id="trobadaForm">
-      <input type="hidden" value="${
-        trobada.ID_trobada
-      }" name="ID_trobada" readonly />
+      <input type="hidden" value="${trobada.ID_trobada
+    }" name="ID_trobada" readonly />
   
       <div class="row">
         <div class="col-12">
           <div class="input-group mb-3">
             
-            <input type="search" class="form-control llistajugadorsform" name="Nom" id="jugAssistencia" required readonly  value="${
-              jugadorDesat.Nom || ""
-            }" placeholder="Comença a escriure el nom i tria de la llista" >
+            <input type="search" class="form-control llistajugadorsform" name="Nom" id="jugAssistencia" required readonly  value="${jugadorDesat.Nom || ""
+    }" placeholder="Comença a escriure el nom i tria de la llista" >
              <button class="btn btn-primary" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#desajug" aria-expanded="false"
               aria-controls="desajug" onclick="loadContent(['trobades'])">Canvia</button>
           </div>
@@ -208,24 +196,22 @@ function renderFormTrobada(trobada) {
             <div class="card-body">        
               <h6 class="card-title">Primera partida <span id="ronda1"></span></h6>
               <div class="row">
-                <div class="col-10 mb-3">He pactat la ronda amb el meu adversari <span id="adv1" class="nom">${
-                  jugadorDesat.partides.filter((p) => p.Ronda == ronda1)[0] !=
-                  undefined
-                    ? jugadorDesat.partides.filter((p) => p.Ronda == ronda1)[0]
-                        .Jugador2
-                    : "(no tenc adversari definit en aquesta ronda)"
-                }</span></div>
+                <div class="col-10 mb-3">He pactat la ronda amb el meu adversari <span id="adv1" class="nom">${jugadorDesat.partides.filter((p) => p.Ronda == ronda1)[0] !=
+      undefined
+      ? jugadorDesat.partides.filter((p) => p.Ronda == ronda1)[0]
+        .Jugador2
+      : "(no tenc adversari definit en aquesta ronda)"
+    }</span></div>
                 <div class="col-2 text-end">
                   <div class="form-check form-switch">
-                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="Primera_partida" value="1a Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte1').value='${
-                      jugadorDesat.partides.filter(
-                        (p) => p.Ronda == ronda1
-                      )[0] != undefined
-                        ? jugadorDesat.partides.filter(
-                            (p) => p.Ronda == ronda1
-                          )[0].Jugador2
-                        : "(no tenc adversari definit en aquesta ronda)"
-                    }':''">
+                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="Primera_partida" value="1a Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte1').value='${jugadorDesat.partides.filter(
+      (p) => p.Ronda == ronda1
+    )[0] != undefined
+      ? jugadorDesat.partides.filter(
+        (p) => p.Ronda == ronda1
+      )[0].Jugador2
+      : "(no tenc adversari definit en aquesta ronda)"
+    }':''">
                    
                   </div>
                 </div>
@@ -261,30 +247,27 @@ function renderFormTrobada(trobada) {
   
   
             <!-- Second Game Content (partida2) -->
-            <div id="partida2" class="card mb-4 ${
-              trobada.Rondes_a_jugar == 1 ? "d-none" : ""
-            }">
+            <div id="partida2" class="card mb-4 ${trobada.Rondes_a_jugar == 1 ? "d-none" : ""
+    }">
             <div class="card-body">    
               <h6 class="card-title">Segona partida <span id="ronda2"></span></h6>
               <div class="row">
-                <div class="col-10 mb-3">He pactat la ronda amb el meu adversari <span id="adv2" class="nom">${
-                  jugadorDesat.partides.filter((p) => p.Ronda == ronda2)[0] !=
-                  undefined
-                    ? jugadorDesat.partides.filter((p) => p.Ronda == ronda2)[0]
-                        .Jugador2
-                    : "(no tenc adversari definit en aquesta ronda)"
-                }</span></div>
+                <div class="col-10 mb-3">He pactat la ronda amb el meu adversari <span id="adv2" class="nom">${jugadorDesat.partides.filter((p) => p.Ronda == ronda2)[0] !=
+      undefined
+      ? jugadorDesat.partides.filter((p) => p.Ronda == ronda2)[0]
+        .Jugador2
+      : "(no tenc adversari definit en aquesta ronda)"
+    }</span></div>
                 <div class="col-2 text-end">
                   <div class="form-check form-switch">
-                    <input class="form-check-input ch2" type="radio" role="switch" name="Segona_partida" id="Segona_partida" value="2a Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte2').value='${
-                      jugadorDesat.partides.filter(
-                        (p) => p.Ronda == ronda2
-                      )[0] != undefined
-                        ? jugadorDesat.partides.filter(
-                            (p) => p.Ronda == ronda2
-                          )[0].Jugador2
-                        : "(no tenc adversari definit en aquesta ronda)"
-                    }':''">
+                    <input class="form-check-input ch2" type="radio" role="switch" name="Segona_partida" id="Segona_partida" value="2a Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte2').value='${jugadorDesat.partides.filter(
+      (p) => p.Ronda == ronda2
+    )[0] != undefined
+      ? jugadorDesat.partides.filter(
+        (p) => p.Ronda == ronda2
+      )[0].Jugador2
+      : "(no tenc adversari definit en aquesta ronda)"
+    }':''">
                    
                   </div>
                 </div>
@@ -369,13 +352,13 @@ function renderFormTrobada(trobada) {
     assistencia.value == "si"
       ? document.getElementById("assisteix").classList.add("show")
       : document.getElementById("assisteix").classList.remove("show");
-    assistencia.value!=""
-    ?document.getElementById("enviaAssistencia").disabled=false
-    :document.getElementById("enviaAssistencia").disabled=true
+    assistencia.value != ""
+      ? document.getElementById("enviaAssistencia").disabled = false
+      : document.getElementById("enviaAssistencia").disabled = true
   });
 }
 
- async function enviaRespAssistencia() {
+async function enviaRespAssistencia() {
   preventFormSubmit();
   let form = document.getElementById("trobadaForm");
   //const obj = await ParseFormObjectForGAS(form); // Heare, this library is used.
@@ -386,11 +369,11 @@ function renderFormTrobada(trobada) {
   document.getElementById("enviaAssistencia").disabled = true;
   document.getElementById("spnbtn3").classList.remove("d-none");
   console.log(JSON.stringify({
-      envia: 'trobada', 
-      values: values, 
-      idfull: idfull,
-      idJSON: idJSON,
-    }))
+    envia: 'trobada',
+    values: values,
+    idfull: idfull,
+    idJSON: idJSON,
+  }))
   fetch(macroURL, {
     method: 'POST',
     mode: 'no-cors',
@@ -398,22 +381,23 @@ function renderFormTrobada(trobada) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      envia: 'trobada', 
-      values: values, 
+      envia: 'trobada',
+      values: values,
       idfull: idfull,
       idJSON: idJSON,
     }),
   })
-  .then(response => {
-    response.text()
-      console.log(response.text())})
-  .then(data => {
-    console.log('Resposta del servidor:', data);
-    setTimeout(iniciJSON(false,"trobades"), 500)
-  })
-  .catch(error => console.error('Error:', error));
+    .then(response => {
+      response.text()
+      console.log(response.text())
+    })
+    .then(data => {
+      console.log('Resposta del servidor:', data);
+      setTimeout(iniciJSON(false, "trobades"), 500)
+    })
+    .catch(error => console.error('Error:', error));
 
-} 
+}
 
 /**
 * Create and download a file on click
@@ -444,7 +428,7 @@ function convertToICSDate(dateTime) {
   const month = (dateTime.getMonth() + 1) < 10 ? "0" + (dateTime.getMonth() + 1).toString() : (dateTime.getMonth() + 1).toString();
   const day = dateTime.getDate() < 10 ? "0" + dateTime.getDate().toString() : dateTime.getDate().toString();
   const hours = dateTime.getHours() < 10 ? "0" + dateTime.getHours().toString() : dateTime.getHours().toString();
-  const minutes = dateTime.getMinutes() < 10 ? "0" +dateTime.getMinutes().toString() : dateTime.getMinutes().toString();
+  const minutes = dateTime.getMinutes() < 10 ? "0" + dateTime.getMinutes().toString() : dateTime.getMinutes().toString();
 
   return year + month + day + "T" + hours + minutes + "00";
 }
@@ -471,29 +455,29 @@ function convertirExcelATempsUTC(excelTime) {
 * @params {string} state
 */
 function createDownloadICSFile(timezone, startTime, endTime, title, description, venueName, address, city, state) {
-const icsBody = 'BEGIN:VCALENDAR\n' +
-'VERSION:2.0\n' +
-'PRODID:Calendar\n' +
-'CALSCALE:GREGORIAN\n' +
-'METHOD:PUBLISH\n' +
-'BEGIN:VTIMEZONE\n' +
-'TZID:' + timezone + '\n' +
-'END:VTIMEZONE\n' +
-'BEGIN:VEVENT\n' +
-'SUMMARY:' + title + '\n' +
-'UID:@Default\n' +
-'SEQUENCE:0\n' +
-'STATUS:CONFIRMED\n' +
-'TRANSP:TRANSPARENT\n' +
-'DTSTART;TZID=' + timezone + ':' + convertToICSDate(startTime) + '\n' +
-'DTEND;TZID=' + timezone + ':' + convertToICSDate(endTime)+ '\n' +
-'DTSTAMP:'+ convertToICSDate(new Date()) + '\n' +
-'LOCATION:' + venueName + '\\n' + address + ', ' + city + ', ' + state + '\n' +
-'DESCRIPTION:' + description + '\n' +
-'END:VEVENT\n' +
-'END:VCALENDAR\n';
+  const icsBody = 'BEGIN:VCALENDAR\n' +
+    'VERSION:2.0\n' +
+    'PRODID:Calendar\n' +
+    'CALSCALE:GREGORIAN\n' +
+    'METHOD:PUBLISH\n' +
+    'BEGIN:VTIMEZONE\n' +
+    'TZID:' + timezone + '\n' +
+    'END:VTIMEZONE\n' +
+    'BEGIN:VEVENT\n' +
+    'SUMMARY:' + title + '\n' +
+    'UID:@Default\n' +
+    'SEQUENCE:0\n' +
+    'STATUS:CONFIRMED\n' +
+    'TRANSP:TRANSPARENT\n' +
+    'DTSTART;TZID=' + timezone + ':' + convertToICSDate(startTime) + '\n' +
+    'DTEND;TZID=' + timezone + ':' + convertToICSDate(endTime) + '\n' +
+    'DTSTAMP:' + convertToICSDate(new Date()) + '\n' +
+    'LOCATION:' + venueName + '\\n' + address + ', ' + city + ', ' + state + '\n' +
+    'DESCRIPTION:' + description + '\n' +
+    'END:VEVENT\n' +
+    'END:VCALENDAR\n';
 
-download(title + '.ics', icsBody);
+  download(title + '.ics', icsBody);
 }
 function ExcelDateToJSDateNormal(serial) {
   var utc_days = Math.floor(serial - 25569);
@@ -521,4 +505,90 @@ function ExcelDateToJSDateNormal(serial) {
   return jsdate;
 }
 
+function editaTrobada(trobada) {
+  const formTemplate = `
+  <form id="formulari_Calendari_trobades" class="container-fluid needs-validation">
+    <div class="mb-2"><label class="col-form-label">max_ronda:</label>
+    <input type="number" class="form-control" value="${trobada.max_ronda}"
+            name="max_ronda" placeholder="max_ronda"  step="1"></div>
+    <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada}" name="ID_trobada"></div>
+    <div class="mb-2">
+    <label class="col-form-label">Títol de la trobada:</label>
+    <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada}"></div>
+    <div class="mb-2">
+    <label class="col-form-label">Data:</label>
+    <input type="datetime-local" class="form-control"
+            name="Data" placeholder="Data i hora" value="${trobada.Data}"></div> 
+            
+    <div class="mb-2"><label class="col-form-label">Lloc:</label>
+    <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc}"
+            placeholder="Lloc"></div>
+    <div class="mb-2"><label class="col-form-label">adreça:</label>
+    <input type="text" class="form-control" name="adreça"  value="${trobada.adreça}"
+            placeholder="adreça" ></div>
+    <div class="mb-2"><label class="col-form-label">maps:</label>
+    <input type="url" class="form-control" name="maps"  value="${trobada.maps}"
+            placeholder="maps"></div>
+    <div class="mb-2"><label>Sopar?</label>
+        <div class="form-check form-switch">
+        <input type="checkbox" name="Sopar" id="SoparTRUE"  value="${trobada.Sopar}"
+                class="form-check-input"></div>
+    </div>
+    <div class="mb-2"><label>Mostra a l'applicació?</label>
+        <div class="form-check form-switch"><input type="checkbox" name="Mostra" id="MostraTRUE"  value="${trobada.Mostra}"
+                class="form-check-input"></div>
+    </div>
+   
+    <div class="mb-2"><label class="col-form-label">Rondes_a_jugar:</label>
+    <input type="number" class="form-control"
+            name="Rondes_a_jugar" placeholder="Rondes_a_jugar" step="1"  value="${trobada.Rondes_a_jugar}"></div>
+    
+    
+    <div class="modal-footer">      
+      <input id="botodesatrobada" type="button" value="Desa" class="btn btn-primary"></div>
+</form>
+`
+document.getElementById("content").innerHTML += formTemplate
+}
 
+async function editaTrobada() {
+  preventFormSubmit();
+  let form = document.getElementById("formulari_Calendari_trobades");
+  //const obj = await ParseFormObjectForGAS(form); // Heare, this library is used.
+  const dataform = new FormData(form);
+  const values = Object.fromEntries(dataform.entries());
+
+
+  
+  console.log(JSON.stringify({
+    envia: 'novaTrobada',
+    values: values,
+    idfull: idfull,
+    idJSON: idJSON,
+    row: values.ID_trobada,
+  }))
+  fetch(macroURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      envia: 'novaTrobada',
+      values: values,
+      idfull: idfull,
+      idJSON: idJSON,
+      row: values.ID_trobada,
+    }),
+  })
+    .then(response => {
+      response.text()
+      console.log(response.text())
+    })
+    .then(data => {
+      console.log('Resposta del servidor:', data);
+      setTimeout(iniciJSON(false, "trobades"), 500)
+    })
+    .catch(error => console.error('Error:', error));
+
+}

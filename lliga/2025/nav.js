@@ -65,7 +65,10 @@ function loadContent(vista) {
     </div>
     `
         break
-
+    case "editatrobada":
+      navbarTitle.innerHTML = "Edita la trobada";
+      editaTrobada(trobada)
+      break
     case "classificaciogeneral":
       navbarTitle.innerHTML = "Classificació";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
