@@ -505,7 +505,7 @@ function ExcelDateToJSDateNormal(serial) {
   return jsdate;
 }
 
-function editaTrobada(trobada) {
+function editaTrobadaForm(trobada) {
   const formTemplate = `
   <form id="formulari_Calendari_trobades" class="container-fluid needs-validation">
     <div class="mb-2"><label class="col-form-label">max_ronda:</label>
@@ -545,7 +545,7 @@ function editaTrobada(trobada) {
     
     
     <div class="modal-footer">      
-      <input id="botodesatrobada" type="button" value="Desa" class="btn btn-primary"></div>
+      <input id="botodesatrobada" type="button" value="Desa" class="btn btn-primary" onclick="editaTrobada()"></div>
 </form>
 `
 document.getElementById("content").innerHTML += formTemplate

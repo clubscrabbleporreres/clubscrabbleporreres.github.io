@@ -67,7 +67,7 @@ function loadContent(vista) {
         break
     case "editatrobada":
       navbarTitle.innerHTML = "Edita la trobada";
-      editaTrobada(trobada)
+      editaTrobadaForm(trobada)
       break
     case "classificaciogeneral":
       navbarTitle.innerHTML = "Classificació";
