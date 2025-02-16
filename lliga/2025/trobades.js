@@ -524,10 +524,11 @@ function editaTrobadaForm(trobada) {
     <div class="mb-2"><label class="col-form-label">Lloc:</label>
     <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc||null}"
             placeholder="Lloc"></div>
-    <div class="mb-2"><label class="col-form-label">Adreça:</label>
+            
+    <div class="mb-2"><label class="col-form-label">Adreça (si la deixes en blanc s'omplirà automàticament):</label>
     <input type="text" class="form-control" name="adreça"  value="${trobada.adreça||null}"
             placeholder="adreça" ></div>
-    <div class="mb-2"><label class="col-form-label">URL Maps:</label>
+    <div class="mb-2"><label class="col-form-label">URL Maps (si ho deixes en blanc s'omplirà automàticament):</label>
     <input type="url" class="form-control" name="maps"  value="${trobada.maps||null}"
             placeholder="maps"></div>
     <div class="mb-2"><label>Sopar?</label>
