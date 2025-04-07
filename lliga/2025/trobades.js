@@ -543,6 +543,13 @@ function editaTrobadaForm(trobada) {
     <div class="mb-2"><label class="col-form-label">Rondes a jugar:</label>
     <input type="number" class="form-control"
             name="Rondes_a_jugar" placeholder="Rondes_a_jugar" value="${trobada.Rondes_a_jugar||null}"></div>
+
+             <div class="form-check form-switch">
+        <input type="checkbox"  id="ConfirmatTRUE"  value="${trobada.Confirmat}" ${trobada.Confirmat==="TRUE"?"checked":""}
+                class="form-check-input" >
+                <input type="hidden" id="Confirmat" name="Confirmat" value="${trobada.Confirmat}"> 
+                </div>
+    </div>
     
     
     <div class="modal-footer"> 
@@ -558,6 +565,11 @@ document.getElementById("SoparTRUE").addEventListener("change",function(){
   let sopar =document.getElementById("Sopar")
   sopar.value = this.checked? "TRUE" : "FALSE"
 })
+document.getElementById("ConfirmatTRUE").addEventListener("change",function(){
+  let sopar =document.getElementById("Confirmat")
+  sopar.value = this.checked? "TRUE" : "FALSE"
+})
+
 }
 
 async function editaTrobada() {
