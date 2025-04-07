@@ -510,30 +510,30 @@ function editaTrobadaForm(trobada) {
   const formTemplate = `
   <form id="formulari_Calendari_trobades" class="container-fluid needs-validation">
     <div class="mb-2"><label class="col-form-label">Ronda (si es juguen més d'una ronda posar la més alta):</label>
-    <input type="number" class="form-control" value="${trobada.max_ronda||null}"
+    <input type="number" class="form-control" value="${trobada.max_ronda || null}"
             name="max_ronda" placeholder="max_ronda"></div>
-    <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada||null}" name="ID_trobada"></div>
+    <div class="mb-2"><input type="hidden" value="${trobada.ID_trobada || null}" name="ID_trobada"></div>
     <div class="mb-2">
     <label class="col-form-label">Títol de la trobada:</label>
-    <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada||null}"></div>
+    <input type="text" class="form-control" name="Trobada" placeholder="Trobada" value="${trobada.Trobada || null}"></div>
     <div class="mb-2">
     <label class="col-form-label">Data:</label>
     <input type="datetime-local" class="form-control" id="DataHora"
-            name="DataHora" placeholder="Data i hora" value="${trobada.DataHora||new Date().toISOString().split("T").join(" ").split(".")[0]}"></div> 
+            name="DataHora" placeholder="Data i hora" value="${trobada.DataHora || new Date().toISOString().split("T").join(" ").split(".")[0]}"></div> 
             
     <div class="mb-2"><label class="col-form-label">Lloc:</label>
-    <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc||null}"
+    <input type="text" class="form-control" name="Lloc"  value="${trobada.Lloc || null}"
             placeholder="Lloc"></div>
             
     <div class="mb-2"><label class="col-form-label">Adreça (si la deixes en blanc s'omplirà automàticament):</label>
-    <input type="text" class="form-control" name="adreça"  value="${trobada.adreça||null}"
+    <input type="text" class="form-control" name="adreça"  value="${trobada.adreça || null}"
             placeholder="adreça" ></div>
     <div class="mb-2"><label class="col-form-label">URL Maps (si ho deixes en blanc s'omplirà automàticament):</label>
-    <input type="url" class="form-control" name="maps"  value="${trobada.maps||null}"
+    <input type="url" class="form-control" name="maps"  value="${trobada.maps || null}"
             placeholder="maps"></div>
     <div class="mb-2"><label>Sopar?</label>
         <div class="form-check form-switch">
-        <input type="checkbox"  id="SoparTRUE"  value="${trobada.Sopar}" ${trobada.Sopar==="TRUE"?"checked":""}
+        <input type="checkbox"  id="SoparTRUE"  value="${trobada.Sopar}" ${trobada.Sopar === "TRUE" ? "checked" : ""}
                 class="form-check-input" >
                 <input type="hidden" id="Sopar" name="Sopar" value="${trobada.Sopar}"> 
                 </div>
@@ -542,10 +542,10 @@ function editaTrobadaForm(trobada) {
    
     <div class="mb-2"><label class="col-form-label">Rondes a jugar:</label>
     <input type="number" class="form-control"
-            name="Rondes_a_jugar" placeholder="Rondes_a_jugar" value="${trobada.Rondes_a_jugar||null}"></div>
-
+            name="Rondes_a_jugar" placeholder="Rondes_a_jugar" value="${trobada.Rondes_a_jugar || null}"></div>
+<div class="mb-2"><label>Confirmat? es mostrarà a l'aplicació:</label>
              <div class="form-check form-switch">
-        <input type="checkbox"  id="ConfirmatTRUE"  value="${trobada.Confirmat}" ${trobada.Confirmat==="TRUE"?"checked":""}
+        <input type="checkbox"  id="ConfirmatTRUE"  value="${trobada.Confirmat}" ${trobada.Confirmat === "TRUE" ? "checked" : ""}
                 class="form-check-input" >
                 <input type="hidden" id="Confirmat" name="Confirmat" value="${trobada.Confirmat}"> 
                 </div>
@@ -560,15 +560,15 @@ function editaTrobadaForm(trobada) {
           </button>
 </form>
 `
-document.getElementById("content").innerHTML += formTemplate
-document.getElementById("SoparTRUE").addEventListener("change",function(){
-  let sopar =document.getElementById("Sopar")
-  sopar.value = this.checked? "TRUE" : "FALSE"
-})
-document.getElementById("ConfirmatTRUE").addEventListener("change",function(){
-  let sopar =document.getElementById("Confirmat")
-  sopar.value = this.checked? "TRUE" : "FALSE"
-})
+  document.getElementById("content").innerHTML += formTemplate
+  document.getElementById("SoparTRUE").addEventListener("change", function () {
+    let sopar = document.getElementById("Sopar")
+    sopar.value = this.checked ? "TRUE" : "FALSE"
+  })
+  document.getElementById("ConfirmatTRUE").addEventListener("change", function () {
+    let sopar = document.getElementById("Confirmat")
+    sopar.value = this.checked ? "TRUE" : "FALSE"
+  })
 
 }
 
@@ -582,7 +582,7 @@ async function editaTrobada() {
   const values = Object.fromEntries(dataform.entries());
 
 
-  
+
   console.log(JSON.stringify({
     envia: 'novaTrobada',
     values: values,
