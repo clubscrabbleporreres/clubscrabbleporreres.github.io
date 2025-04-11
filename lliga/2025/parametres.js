@@ -83,7 +83,7 @@ function iniciJSON(turbo,vista) {
       // Example: Accessing data from the 'trobades' response
       trobada = data.trobades;
       if (trobada.Confirmat=="TRUE") {
-        document.getElementById("menuTrobades").classList.remove("d-none")
+        document.querySelectorAll(".trobades").forEach(t=>t.classList.remove("d-none"))
         var assistents = trobada.assistents;
         assistents.map((w) => {
           w.Primera_partida = w.Primera_partida + w.Adv1;
