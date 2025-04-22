@@ -277,9 +277,10 @@ function loadContent(vista) {
         return 0;
       }
       aparellaments.sort(ordregrup);
-
+console.log(aparellaments)
+console.log(fases[faseNum][options.grup])
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options.ronda && j.Grup === fases[faseNum][options.grup]);
-      //console.log(partidesfilt)
+      console.log(partidesfilt)
       /* var partidesfiltagrupades = groupById(partidesfilt);
       console.log(partidesfiltagrupades); */
       var grup = "";
