@@ -62,6 +62,8 @@ function iniciJSON(fase,vista) {
   idJSON=fases[fase]['idJSON']
   grup1=fases[fase]['grup1']
   grup2=fases[fase]['grup2']
+  let nomFase = fase=="fase1"?"Fase 1":"Fase 2"
+  document.getElementById("fases").innerText = nomFase
   carregant();
   carrega = 0;
   // Crida a l'API del Google Apps Script
