@@ -76,7 +76,7 @@
         <li><a class="dropdown-item navApp" href="#rondes">Rondes</a></li>
         <li><a class="dropdown-item navApp disabled trobades" href="#trobades">Trobades</a></li>
         <li id="btneditatrobada" class="d-none ">
-          <a class="navApp dropdown-item" href="#editatrobada"> 
+          <a class="navApp dropdown-item" href="#editatrobada">
             <i class="bi bi-pencil-square"></i>
             Edita la trobada
           </a>
@@ -88,8 +88,8 @@
           <h6 class="dropdown-header text-danger">Classificacions<i class="bi bi-arrow-repeat float-end"
               onclick="iniciJSON()"></i></h6>
         </li>
-        <li><a class="dropdown-item navApp" href="#passeres">🐦‍⬛Classificació pàsseres</a></li>
-        <li><a class="dropdown-item navApp" href="#fassers">🌴Classificació fassers</a></li>
+        <li><a class="dropdown-item navApp" href="#grup1">🐦‍⬛Classificació grup 1</a></li>
+        <li><a class="dropdown-item navApp" href="#grup2">🌴Classificació grup 2</a></li>
         <li><a class="dropdown-item navApp" href="#scrabbles">Scrabbles</a></li>
         <li><a class="dropdown-item navApp" href="#jugada">Millor jugada</a></li>
         <li><a class="dropdown-item navApp" href="#partida">Millor partida individual</a></li>
@@ -138,8 +138,8 @@
     <!-- </nav> -->
 
     <ul class="collapse navbar-collapse nav nav-underline flex-nowrap text-nowrap overflow-x-scroll" id="collapsetabs">
-      <li class="nav-item ms-2"><a class="nav-link navApp" href="#passeres">Classificació pàsseres🐦‍⬛</a></li>
-      <li class="nav-item ms-2"><a class="nav-link navApp" href="#fassers">Classificació fassers🌴</a></li>
+      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup1">Classificació grup 1🐦‍⬛</a></li>
+      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup2">Classificació grup 2🌴</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#scrabbles">Scrabbles</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#jugada">Millor jugada</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#partida">Millor partida individual</a></li>
@@ -554,9 +554,15 @@
     let parameterVista = urlParams.vista;
     let parameterOptions = urlParams.options;
     let vistaPredet = { page: parameterVista, options: parameterOptions };
+    let fases = {
+      fase1: { idfull: "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E", idJSON: "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-", grup1: "pàsseres", grup2: "fassers" },
+      fase2: { idfull: "1vhw7vyQqSAnbiQhNGFhtmZuKglJ5uSMRsY5hreX8k7c", idJSON: "1iH_gcNyioY67sWolBTJ0W19bUcN9nU7U-", grup1: "1", grup2: "2" }
+    }
+    let grup1 = ''
+    let grup2 = ''
     let idfull = urlParams.idfull || "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E";
     let idJSON = urlParams.idJSON || "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-";
-    let JSONfixe = "Lliga_Porreres 2025.json"
+    //let JSONfixe = "Lliga_Porreres 2025.json"
     //let usaJSONfixe =  urlParams.turbo || localStorage.getItem("turbo") //true/false
     let mostrapestanyes = urlParams.mostrapestanyes || "no";
     if (mostrapestanyes === "si") {

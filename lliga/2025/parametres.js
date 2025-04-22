@@ -55,10 +55,13 @@ function carregaUsuari() {
   }
   
 }
-document.addEventListener("DOMContentLoaded", iniciJSON(false));
+document.addEventListener("DOMContentLoaded", iniciJSON('fase2'));
 
-function iniciJSON(turbo,vista) {
-  
+function iniciJSON(fase,vista) {
+  idfull=fases[fase]['idfull']
+  idJSON=fases[fase]['idJSON']
+  grup1=fases[fase]['grup1']
+  grup2=fases[fase]['grup2']
   carregant();
   carrega = 0;
   // Crida a l'API del Google Apps Script
@@ -69,8 +72,9 @@ function iniciJSON(turbo,vista) {
     mode: "no-cors",
     cache: "default",
   };
+
   Promise.all([
-    fetch(turbo ? JSONfixe : macroURL + "?page=JSON&idJSON=" + idJSON),    
+    fetch( macroURL + "?page=JSON&idJSON=" + idJSON),    
   ])
     .then((responses) =>
       Promise.all(responses.map((response) => response.json()))

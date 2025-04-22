@@ -33,19 +33,19 @@ function loadContent(vista) {
       contentDiv.innerHTML =
         "<h1>Página d'inici</h1><p>Benvingut a la primera pàgina</p>";
       break;
-      case "classificacio":
-        navbarTitle.innerHTML = "Grups";
+      case "fases":
+        navbarTitle.innerHTML = "Fases";
         contentDiv.innerHTML = `
             <div class="container mt-5">
         <div class="row">
             <!-- Targeta 1 -->
             <div class="col-md-6 mb-4">
                 <div class="card text-center">
-                    <div class="card-body" onclick="loadContent(['passeres'])">
+                    <div class="card-body" onclick="iniciJSON('fase1')">
                         <!-- Imatge rodona -->
                         <img src="/icons/passera.jpg" class="rounded-circle mb-3" alt="pàssera">
                         <!-- Nom -->
-                        <h5 class="card-title">Pàsseres</h5>
+                        <h5 class="card-title">Fase 1</h5>
                     </div>
                 </div>
             </div>
@@ -53,11 +53,11 @@ function loadContent(vista) {
             <!-- Targeta 2 -->
             <div class="col-md-6 mb-4">
                 <div class="card text-center">
-                    <div class="card-body" onclick="loadContent(['fassers'])">
+                    <div class="card-body" onclick="iniciJSON('fase2')">
                         <!-- Imatge rodona -->
                         <img src="/icons/fasser.jpg" class="rounded-circle mb-3" alt="fasser">
                         <!-- Nom -->
-                        <h5 class="card-title">Fassers</h5>
+                        <h5 class="card-title">Fase 2</h5>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@ function loadContent(vista) {
       });
 
       break;
-      case "fassers":
+      case "grup2":
       navbarTitle.innerHTML = "Classificació 🌴";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
@@ -124,7 +124,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-const dadesfassers = dades.filter(g=>g.grup == 'fassers')
+const dadesfassers = dades.filter(g=>g.grup == grup2)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -161,7 +161,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
       });
 
       break;
-      case "passeres":
+      case "grup1":
         navbarTitle.innerHTML = "Classificació 🐦‍⬛";
         contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
         var div = document.createElement("div");
@@ -170,7 +170,7 @@ const dadesfassers = dades.filter(g=>g.grup == 'fassers')
         div.classList.add("justify-content-center"); */
         div.classList.add("p-0");
         contentDiv.appendChild(div);
-      const dadespasseres = dades.filter(g=>g.grup == "pàsseres")
+      const dadespasseres = dades.filter(g=>g.grup == grup1)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
