@@ -161,6 +161,12 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
       });
 
       break;
+      case "fase1":
+        iniciJSON("fase1")
+        break;
+        case "fase2":
+        iniciJSON("fase2")
+        break;
       case "grup1":
         navbarTitle.innerHTML = "Classificació 🐦‍⬛";
         contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
