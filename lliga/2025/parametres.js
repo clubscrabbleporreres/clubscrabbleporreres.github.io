@@ -58,6 +58,7 @@ function carregaUsuari() {
 document.addEventListener("DOMContentLoaded", iniciJSON('fase2'));
 
 function iniciJSON(fase,vista) {
+  faseNum = fase
   idfull=fases[fase]['idfull']
   idJSON=fases[fase]['idJSON']
   grup1=fases[fase]['grup1']
