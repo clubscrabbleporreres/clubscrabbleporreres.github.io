@@ -393,7 +393,7 @@ async function enviaRespAssistencia() {
     })
     .then(data => {
       console.log('Resposta del servidor:', data);
-      setTimeout(iniciJSON(false, "trobades"), 500)
+      setTimeout(iniciJSON(faseNum, "trobades"), 500)
     })
     .catch(error => console.error('Error:', error));
 
@@ -610,7 +610,7 @@ async function editaTrobada() {
     })
     .then(data => {
       console.log('Resposta del servidor:', data);
-      setTimeout(iniciJSON(false, "trobades"), 500)
+      setTimeout(iniciJSON(faseNum, "trobades"), 500)
     })
     .catch(error => console.error('Error:', error));
 
