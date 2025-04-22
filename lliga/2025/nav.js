@@ -277,8 +277,7 @@ function loadContent(vista) {
         return 0;
       }
       aparellaments.sort(ordregrup);
-console.log(aparellaments)
-console.log(fases[faseNum][options.grup])
+
       var partidesfilt = aparellaments.filter((j) => j.Ronda == options.ronda && j.Grup === fases[faseNum][options.grup]);
       console.log(partidesfilt)
       /* var partidesfiltagrupades = groupById(partidesfilt);
@@ -293,7 +292,7 @@ console.log(fases[faseNum][options.grup])
           if (partida.Grup != grup) {
             grup = partida.Grup;
             document.getElementById("content").innerHTML +=
-              "<h6>Grup " + grup + "</h6>";
+              "<h6>" + grup + "</h6>";
           }
 
           renderAparellaments(partida);
