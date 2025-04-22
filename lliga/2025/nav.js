@@ -33,9 +33,9 @@ function loadContent(vista) {
       contentDiv.innerHTML =
         "<h1>Página d'inici</h1><p>Benvingut a la primera pàgina</p>";
       break;
-      case "fases":
-        navbarTitle.innerHTML = "Fases";
-        contentDiv.innerHTML = `
+    case "fases":
+      navbarTitle.innerHTML = "Fases";
+      contentDiv.innerHTML = `
             <div class="container mt-5">
         <div class="row">
             <!-- Targeta 1 -->
@@ -64,7 +64,7 @@ function loadContent(vista) {
         </div>
     </div>
     `
-        break
+      break
     case "editatrobada":
       navbarTitle.innerHTML = "Edita la trobada";
       editaTrobadaForm(trobada)
@@ -115,7 +115,13 @@ function loadContent(vista) {
       });
 
       break;
-      case "grup2":
+    case "fase1":
+      iniciJSON("fase1")
+      break;
+    case "fase2":
+      iniciJSON("fase2")
+      break;
+    case "grup2":
       navbarTitle.innerHTML = "Classificació 🌴";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
@@ -124,7 +130,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-const dadesfassers = dades.filter(g=>g.grup == grup2)
+      const dadesfassers = dades.filter(g => g.grup == grup2)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -161,22 +167,17 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
       });
 
       break;
-      case "fase1":
-        iniciJSON("fase1")
-        break;
-        case "fase2":
-        iniciJSON("fase2")
-        break;
-      case "grup1":
-        navbarTitle.innerHTML = "Classificació 🐦‍⬛";
-        contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
-        var div = document.createElement("div");
-        div.id = "subcontent";
-        /* div.classList.add("row-md-8");
-        div.classList.add("justify-content-center"); */
-        div.classList.add("p-0");
-        contentDiv.appendChild(div);
-      const dadespasseres = dades.filter(g=>g.grup == grup1)
+
+    case "grup1":
+      navbarTitle.innerHTML = "Classificació 🐦‍⬛";
+      contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
+      var div = document.createElement("div");
+      div.id = "subcontent";
+      /* div.classList.add("row-md-8");
+      div.classList.add("justify-content-center"); */
+      div.classList.add("p-0");
+      contentDiv.appendChild(div);
+      const dadespasseres = dades.filter(g => g.grup == grup1)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -262,7 +263,7 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
     case "ronda":
       navbarTitle.innerHTML = "Ronda " + options.ronda;
 
-      function ordregrup(a, b)  {
+      function ordregrup(a, b) {
         const nameA = a.Grup.toUpperCase(); // ignore upper and lowercase
         const nameB = b.Grup.toUpperCase(); // ignore upper and lowercase
         if (nameA < nameB) {
@@ -271,13 +272,13 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
         if (nameA > nameB) {
           return 1;
         }
-      
+
         // names must be equal
         return 0;
       }
       aparellaments.sort(ordregrup);
 
-      var partidesfilt = aparellaments.filter((j) => j.Ronda == options.ronda && j.Grup==options.grup);
+      var partidesfilt = aparellaments.filter((j) => j.Ronda == options.ronda && j.Grup == options.grup);
       //console.log(partidesfilt)
       /* var partidesfiltagrupades = groupById(partidesfilt);
       console.log(partidesfiltagrupades); */
@@ -293,7 +294,7 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
             document.getElementById("content").innerHTML +=
               "<h6>Grup " + grup + "</h6>";
           }
-       
+
           renderAparellaments(partida);
         }
       });
@@ -487,16 +488,16 @@ const dadesfassers = dades.filter(g=>g.grup == grup2)
     case "apps":
       window.location.assign(apps);
       break;
-      case "reglament":
-        navbarTitle.innerHTML = "Reglament";
-        fetch('/reglament.html')
-  .then(response => response.text())
-  .then(data => {
-    contentDiv.innerHTML = data;
-  })
-  .catch(error => console.error('Error carregant el fitxer:', error));
-        
-        break;
+    case "reglament":
+      navbarTitle.innerHTML = "Reglament";
+      fetch('/reglament.html')
+        .then(response => response.text())
+        .then(data => {
+          contentDiv.innerHTML = data;
+        })
+        .catch(error => console.error('Error carregant el fitxer:', error));
+
+      break;
 
     default:
       contentDiv.innerHTML =
@@ -532,8 +533,8 @@ function afegeixEsdeveniments() {
     var grup = ronda.dataset.grup;
     //console.log(id)
     ronda.addEventListener("click", () => {
-      loadContent(["ronda", {ronda:id,grup:grup}]);
-      updateHistory(["ronda", {ronda:id,grup:grup}]);
+      loadContent(["ronda", { ronda: id, grup: grup }]);
+      updateHistory(["ronda", { ronda: id, grup: grup }]);
     });
   });
   contentDiv.querySelectorAll(".zoomable").forEach((image) => {
@@ -578,11 +579,11 @@ function afegeixEsdeveniments() {
     missatge.addEventListener("click", () => {
       window.open(
         "https://api.whatsapp.com/send/?phone=34" +
-          telefon +
-          "&text=Hola " +
-          nom +
-          ". Vols que juguem una partida al torn que tens disponible?" +
-          "&type=phone_number&app_absent=0"
+        telefon +
+        "&text=Hola " +
+        nom +
+        ". Vols que juguem una partida al torn que tens disponible?" +
+        "&type=phone_number&app_absent=0"
       );
     });
   });
@@ -703,21 +704,21 @@ function tooltips() {
   );
 }
 function minimenu(estat) {
-  const elementsMinimitzats = ["botocerca",  "botojugador","collapseCerca"];
+  const elementsMinimitzats = ["botocerca", "botojugador", "collapseCerca"];
   const elementsMostrats = ["usermenu",]
   if (estat) {
     elementsMinimitzats.forEach((elmin) => {
-      document.getElementById(elmin).classList.add("d-none");      
+      document.getElementById(elmin).classList.add("d-none");
     });
     elementsMostrats.forEach((elmin) => {
-      document.getElementById(elmin).classList.remove("d-none");      
+      document.getElementById(elmin).classList.remove("d-none");
     });
   } else {
     elementsMinimitzats.forEach((elmin) => {
       document.getElementById(elmin).classList.remove("d-none");
     });
     elementsMostrats.forEach((elmin) => {
-      document.getElementById(elmin).classList.add("d-none");      
+      document.getElementById(elmin).classList.add("d-none");
     });
   }
 }
@@ -730,14 +731,14 @@ function groupById(array) {
         ? [...foundItem.resultats, current] //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
         : [current]; //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }];
     } else {
- /*      acc.push({
-        ID: current.ID,
-        Jugador1: current.Jugador1,
-        Jugador2: current.Jugador2,
-        Estat: current.Estat,
-        Grup: current.Grup,
-        resultats: [current], //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
-      }); */
+      /*      acc.push({
+             ID: current.ID,
+             Jugador1: current.Jugador1,
+             Jugador2: current.Jugador2,
+             Estat: current.Estat,
+             Grup: current.Grup,
+             resultats: [current], //{ 'Puntuacio_1': current.Puntuacio_1, 'Puntuacio_2': current.Puntuacio_2, 'ID':current.ID }]
+           }); */
       acc.push(current)
     }
     return acc;
