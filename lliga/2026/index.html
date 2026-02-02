@@ -30,14 +30,14 @@
           class="d-inline-block align-text-center">
         <span id="nomcampionat">LligaScrabblePorreres</span>
       </div>
-      <span class="float-end badge text-secondary" id="temporada">2025</span>
+      <span class="float-end badge text-secondary" id="temporada">2026</span>
     </div>
     <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="fases">
       Fase 2
     </button>
     <ul class="dropdown-menu " style="z-index: 5000;">
       <li><a class="dropdown-item navApp" href="#fase1">Fase 1</a></li>
-      <li><a class="dropdown-item navApp" href="#fase2">Fase 2</a></li>
+      <!-- <li><a class="dropdown-item navApp" href="#fase2">Fase 2</a></li> -->
     </ul>
   </nav>
   <nav class=" navbar  bg-body sticky-top">
@@ -95,8 +95,8 @@
           <h6 class="dropdown-header text-danger">Classificacions<i class="bi bi-arrow-repeat float-end"
               onclick="iniciJSON()"></i></h6>
         </li>
-        <li><a class="dropdown-item navApp" href="#grup1">🐦‍⬛Classificació grup 1</a></li>
-        <li><a class="dropdown-item navApp" href="#grup2">🌴Classificació grup 2</a></li>
+        <li><a class="dropdown-item navApp" href="#grup1">🧘‍♀️Classificació grup 1</a></li>
+        <li><a class="dropdown-item navApp" href="#grup2">🤺Classificació grup 2</a></li>
         <li><a class="dropdown-item navApp" href="#scrabbles">Scrabbles</a></li>
         <li><a class="dropdown-item navApp" href="#jugada">Millor jugada</a></li>
         <li><a class="dropdown-item navApp" href="#partida">Millor partida individual</a></li>
@@ -145,8 +145,8 @@
     <!-- </nav> -->
 
     <ul class="collapse navbar-collapse nav nav-underline flex-nowrap text-nowrap overflow-x-scroll" id="collapsetabs">
-      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup1">Classificació grup 1🐦‍⬛</a></li>
-      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup2">Classificació grup 2🌴</a></li>
+      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup1">Classificació grup 1🧘‍♀️</a></li>
+      <li class="nav-item ms-2"><a class="nav-link navApp" href="#grup2">Classificació grup 2🤺</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#scrabbles">Scrabbles</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#jugada">Millor jugada</a></li>
       <li class="nav-item"><a class="nav-link navApp" href="#partida">Millor partida individual</a></li>
@@ -562,16 +562,16 @@
     let parameterOptions = urlParams.options;
     let vistaPredet = { page: parameterVista, options: parameterOptions };
     let fases = {
-      fase1: { idfull: "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E", idJSON: "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-", grup1: "pàsseres", grup2: "fassers" },
-      fase2: { idfull: "1vhw7vyQqSAnbiQhNGFhtmZuKglJ5uSMRsY5hreX8k7c", idJSON: "1iH_gcNyioY67sWolBTJ0W19bUcN9nU7U", grup1: "Grup 1", grup2: "Grup 2" }
+      fase1: { idfull: "1TJfSEb_GsHAdNOsUDQ4QsItFsOl7WO9OLinCl3vEpkc", idJSON: "1Vh6n5EWNCPfIaTmVan82jFIrGxpknprF", grup1: "Grup 1", grup2: "Grup 2" },
+      fase2: { idfull: "", idJSON: "", grup1: "Grup 1", grup2: "Grup 2" }
     }
     
     let faseNum =''
     let grup1 = ''
     let grup2 = ''
-    let idfull = urlParams.idfull || "1YGbrDG7y0AYrWYnPHFCuaH_aumbFLnZ4uOGtloO7a6E";
-    let idJSON = urlParams.idJSON || "10CCTMYeF5I_Phi04SLZoxeZK8789zf2-";
-    //let JSONfixe = "Lliga_Porreres 2025.json"
+    let idfull = urlParams.idfull || "1TJfSEb_GsHAdNOsUDQ4QsItFsOl7WO9OLinCl3vEpkc";
+    let idJSON = urlParams.idJSON || "1Vh6n5EWNCPfIaTmVan82jFIrGxpknprF";
+    //let JSONfixe = "Lliga_Porreres 2026.json"
     //let usaJSONfixe =  urlParams.turbo || localStorage.getItem("turbo") //true/false
     let mostrapestanyes = urlParams.mostrapestanyes || "no";
     if (mostrapestanyes === "si") {
@@ -603,5 +603,6 @@
 
   </script>
 </body>
+
 
 </html>
