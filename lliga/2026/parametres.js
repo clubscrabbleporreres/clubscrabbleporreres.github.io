@@ -173,8 +173,9 @@ function preventFormSubmit() {
   }
 }
 function admin(){
-  if(jugadorDesat.Nom=="Beatriu Defior")
+  if(jugadorDesat.Nom=="Beatriu Defior"||jugadorDesat.Nom=="Antoni Llull")
  { 
   document.getElementById("btneditatrobada").classList.remove("d-none")
 }
+
 }
