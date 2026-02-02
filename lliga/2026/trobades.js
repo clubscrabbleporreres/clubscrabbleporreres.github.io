@@ -166,8 +166,8 @@ function renderFormTrobada(trobada) {
         <div class="col-12">
           <div class="input-group mb-3">
             
-            <input type="search" class="form-control llistajugadorsform" name="Nom" id="jugAssistencia" required readonly  value="${jugadorDesat.Nom || ""
-    }" placeholder="Comença a escriure el nom i tria de la llista" >
+            <input type="search" class="form-control llistajugadorsform" name="Nom" id="jugAssistencia" required   value="${jugadorDesat.Nom || ""
+    }" placeholder="Escriu el nom i/o tria de la llista" >
              <button class="btn btn-primary" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#desajug" aria-expanded="false"
               aria-controls="desajug" onclick="loadContent(['trobades'])">Canvia</button>
           </div>
@@ -615,3 +615,4 @@ async function editaTrobada() {
     .catch(error => console.error('Error:', error));
 
 }
+
