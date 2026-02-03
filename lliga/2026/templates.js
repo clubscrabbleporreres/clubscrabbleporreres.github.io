@@ -668,7 +668,7 @@ function renderClassificacio(jugador) {
                         } percent" data-percent="${
     jugador.percentatgeVictories
   }">
-                          ${jugador.Rondes_pendents}/${
+                          ${jugador.PartidesJugades}/${
     jugador.partides.filter((p) => p.Estat != "none").filter((r)=>r.Jugador1!="No juga").filter((d)=>d.Jugador2!="No juga").length
   }
                         </span>  
@@ -1674,6 +1674,7 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
 
 
 
