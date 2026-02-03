@@ -156,7 +156,7 @@ function renderFormTrobada(trobada) {
   const ronda1 = trobada.max_ronda - trobada.Rondes_a_jugar + 1;
   const ronda2 = trobada.max_ronda - trobada.Rondes_a_jugar + 2;
   //console.log(ronda1,ronda2,trobada)
-  const rondaUnica = trobada.Rondes_a_jugar === 1?
+  const rondaUnica = trobada.Rondes_a_jugar === 1;
 
   const trobadaTemplate = `
   <form id="trobadaForm">
@@ -195,7 +195,7 @@ function renderFormTrobada(trobada) {
   
             <div id="partida1" class="card mb-4">  
             <div class="card-body">        
-              <h6 class="card-title">P${!rondaUnica?"rimera p"}artida <span id="ronda1"></span></h6>
+              <h6 class="card-title">${rondaUnica?"P":"rimera p"}artida <span id="ronda1"></span></h6>
               <div class="row">
                 <div class="col-10 mb-3">He pactat la ronda amb el meu adversari <span id="adv1" class="nom">${jugadorDesat.partides.filter((p) => p.Ronda == ronda1)[0] !=
       undefined
@@ -205,7 +205,7 @@ function renderFormTrobada(trobada) {
     }</span></div>
                 <div class="col-2 text-end">
                   <div class="form-check form-switch">
-                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="Primera_partida" value="${!rondaUnica?"1a "}Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte1').value='${jugadorDesat.partides.filter(
+                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="Primera_partida" value="${!rondaUnica?"1a ":""}Partida oficial amb " onchange="this.checked?document.getElementById('jugPacte1').value='${jugadorDesat.partides.filter(
       (p) => p.Ronda == ronda1
     )[0] != undefined
       ? jugadorDesat.partides.filter(
@@ -221,7 +221,7 @@ function renderFormTrobada(trobada) {
                 <div class="col-10 mb-3">He pactat una altra partida</div>
                 <div class="col-2 text-end">
                   <div class="form-check form-switch">
-                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="partida_disp_pacte1" value="${!rondaUnica?"1a "}Partida pactada amb " data-bs-toggle="collapse" data-bs-target="#adversaripacte1">
+                    <input class="form-check-input ch1" type="radio" role="switch" name="Primera_partida" id="partida_disp_pacte1" value="${!rondaUnica?"1a ":""}Partida pactada amb " data-bs-toggle="collapse" data-bs-target="#adversaripacte1">
                     
                   </div>
                 </div>
@@ -248,7 +248,7 @@ function renderFormTrobada(trobada) {
   
   
             <!-- Second Game Content (partida2) -->
-            <div id="partida2" class="card mb-4 ${trobada.Rondes_a_jugar == 1 ? "d-none" : ""
+            <div id="partida2" class="card mb-4 ${rondaUnica ? "d-none" : ""
     }">
             <div class="card-body">    
               <h6 class="card-title">Segona partida <span id="ronda2"></span></h6>
@@ -616,6 +616,7 @@ async function editaTrobada() {
     .catch(error => console.error('Error:', error));
 
 }
+
 
 
 
