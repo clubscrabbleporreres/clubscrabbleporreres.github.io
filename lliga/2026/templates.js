@@ -72,98 +72,7 @@ function renderJugador(jugador) {
   var posConjuntaArray = jugador.partides
     .map((p) => parseInt(p.Pos_Conjunta))
     .filter((pa) => !Number.isNaN(pa));
-
-  const jugadorTemplate = `
-              <div class=" p-1">
-                <div class="card" >
-                  <div class="card-body text-center position-relative">
-                  <a class=" position-absolute top-10 end-0 translate-middle pt-2 pe-1" href="${
-                    urlApp + "&vista=detall&options=" + jugador.ID
-                  }" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Enllaç a la vista actual">
-                    <i class="bi bi-share-fill"></i>
-                  </a>
-                  
-                  
-                  <div class="d-flex justify-content-center imatge-container">
-                    <div class="mt-3 mb-4 imatge-cercle img">
-                      <img src="${
-                        jugador.ID == jugadorDesat.ID
-                          ? userImg || jugador.Imatge
-                          : jugador.Imatge
-                      }"
-                         onerror="this.src='/icons/Imatge-default.jpg'">
-                    </div>
-                    </div>
-                    <h4 class="mb-2">${jugador.Nom}</h4>
-                    <p class="text-muted mb-4">${jugador.Malnom2}</p>
-                    <div class="mb-4 pb-2">
-                    <div class="d-flex justify-content-center text-center">
-                    <div class = "${jugador.Campionats==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Campionats: ${
-                      campionats.join(", ") ||
-                      "Encara no ha guanyat cap campionat."
-                    }">
-                    <span class="h1 material-symbols-outlined">trophy</span>
-                    <p class="text-muted ">${
-                      jugador.Campionats != "" ? campionats.length : "0"
-                    }</p>
-                    </div>
-                    <div class = "${jugador.Podis==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Podis: ${
-                      podis.join(", ") || "Encara no ha fet cap podi."
-                    }">
-                    <span class="h1 material-symbols-outlined">leaderboard</span>
-                    <p class="text-muted ">${
-                      jugador.Podis != "" ? podis.length : "0"
-                    }</p>
-                    </div>
-                    <div class = "${jugador.Diplomes==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Diplomes olímpics: ${
-                      diplomes.join(", ") ||
-                      "Encara no ha aconseguit cap diploma olímpic."
-                    }">
-                    <span class="h1 material-symbols-outlined">school</span>
-                    <p class="text-muted ">${
-                      jugador.Diplomes != "" ? diplomes.length : "0"
-                    }</p>
-                    </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-rounded btn-lg " onclick="window.open('https://wa.me/34${
-                      jugador.Telefon
-                    }');">
-                      <i class="bi bi-whatsapp  me-2"></i>Missatge
-                    </button>
-                    <div class="row align-items-end text-center mt-5 mb-2 d-none ${jugador.etiqueta=="debutant"?"d-none":""}">
-                      <div class="col">
-                        <p class="mb-2 h5">${jugador.BRF}
-                        <br>Núm. ${jugador.PosBRF}
-                        <br>${jugador.CatBRF}
-                        </p>
-                        <p class="text-muted ">Barruf</p>
-                      </div>
-                      <div class="col">
-                        <p class="mb-2 h5">${jugador.VD}</p>
-                        <p class="text-muted ">Victòries / Derrotes</p>
-                      </div>
-                      <div class="col">
-                        <p class="mb-2 h5">${jugador.ATP}</p>
-                        <p class="text-muted ">Posició ATP</p>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-           
-            <div class=" p-1">
-                <div class="card">
-                <div class="card-header">Un per un</div>
-                  <div class="card-body">
-                    <div class="card-text">${jugador.Descripció}</div>
-                  </div>
-              </div>
-            </div>
-            ${jugador.grup!="Esporàdic"?classificacions:""}
-            
-            `
-            
+             
          const classificacions =  ` <div class=" p-1 ">
               <div class="card">
                 <div class="card-header d-flex align-items-center">
@@ -465,6 +374,95 @@ function renderJugador(jugador) {
               </div>
             </div>
               `;
+  const jugadorTemplate = `
+              <div class=" p-1">
+                <div class="card" >
+                  <div class="card-body text-center position-relative">
+                  <a class=" position-absolute top-10 end-0 translate-middle pt-2 pe-1" href="${
+                    urlApp + "&vista=detall&options=" + jugador.ID
+                  }" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Enllaç a la vista actual">
+                    <i class="bi bi-share-fill"></i>
+                  </a>
+                  
+                  
+                  <div class="d-flex justify-content-center imatge-container">
+                    <div class="mt-3 mb-4 imatge-cercle img">
+                      <img src="${
+                        jugador.ID == jugadorDesat.ID
+                          ? userImg || jugador.Imatge
+                          : jugador.Imatge
+                      }"
+                         onerror="this.src='/icons/Imatge-default.jpg'">
+                    </div>
+                    </div>
+                    <h4 class="mb-2">${jugador.Nom}</h4>
+                    <p class="text-muted mb-4">${jugador.Malnom2}</p>
+                    <div class="mb-4 pb-2">
+                    <div class="d-flex justify-content-center text-center">
+                    <div class = "${jugador.Campionats==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Campionats: ${
+                      campionats.join(", ") ||
+                      "Encara no ha guanyat cap campionat."
+                    }">
+                    <span class="h1 material-symbols-outlined">trophy</span>
+                    <p class="text-muted ">${
+                      jugador.Campionats != "" ? campionats.length : "0"
+                    }</p>
+                    </div>
+                    <div class = "${jugador.Podis==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Podis: ${
+                      podis.join(", ") || "Encara no ha fet cap podi."
+                    }">
+                    <span class="h1 material-symbols-outlined">leaderboard</span>
+                    <p class="text-muted ">${
+                      jugador.Podis != "" ? podis.length : "0"
+                    }</p>
+                    </div>
+                    <div class = "${jugador.Diplomes==""?"d-none":""}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Diplomes olímpics: ${
+                      diplomes.join(", ") ||
+                      "Encara no ha aconseguit cap diploma olímpic."
+                    }">
+                    <span class="h1 material-symbols-outlined">school</span>
+                    <p class="text-muted ">${
+                      jugador.Diplomes != "" ? diplomes.length : "0"
+                    }</p>
+                    </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-rounded btn-lg " onclick="window.open('https://wa.me/34${
+                      jugador.Telefon
+                    }');">
+                      <i class="bi bi-whatsapp  me-2"></i>Missatge
+                    </button>
+                    <div class="row align-items-end text-center mt-5 mb-2 d-none ${jugador.etiqueta=="debutant"?"d-none":""}">
+                      <div class="col">
+                        <p class="mb-2 h5">${jugador.BRF}
+                        <br>Núm. ${jugador.PosBRF}
+                        <br>${jugador.CatBRF}
+                        </p>
+                        <p class="text-muted ">Barruf</p>
+                      </div>
+                      <div class="col">
+                        <p class="mb-2 h5">${jugador.VD}</p>
+                        <p class="text-muted ">Victòries / Derrotes</p>
+                      </div>
+                      <div class="col">
+                        <p class="mb-2 h5">${jugador.ATP}</p>
+                        <p class="text-muted ">Posició ATP</p>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+            <div class=" p-1">
+                <div class="card">
+                <div class="card-header">Un per un</div>
+                  <div class="card-body">
+                    <div class="card-text">${jugador.Descripció}</div>
+                  </div>
+              </div>
+            </div>
+            ${jugador.grup!="Esporàdic"?classificacions:""}        
+            `;
 
   document.getElementById("content").innerHTML += jugadorTemplate;
   const imatgeContainer = document.querySelectorAll(".imatge-container");
@@ -1676,6 +1674,7 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
 
 
 
