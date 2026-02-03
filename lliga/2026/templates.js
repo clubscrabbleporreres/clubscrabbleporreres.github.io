@@ -160,7 +160,11 @@ function renderJugador(jugador) {
                   </div>
               </div>
             </div>
-            <div class=" p-1 ">
+            ${jugador.grup=="Esporàdic"?classificacions:""}
+            
+            `
+            
+         const classificacions =  ` <div class=" p-1 ">
               <div class="card">
                 <div class="card-header d-flex align-items-center">
                 <span class="flex-fill">Classificació general ${
@@ -1672,4 +1676,5 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
 
