@@ -1,5 +1,5 @@
 function renderUserCard(jugadorDesat) {
-  if(jugadorDesat.Nom=="Beatriu Defior")
+  if(jugadorDesat.Nom=="Beatriu Defior"||jugadorDesat.Nom=="Antoni Llull")
     { 
      document.getElementById("btneditatrobada").classList.remove("d-none")
    }else{
@@ -594,7 +594,7 @@ function renderDetallPartida(partida) {
   }</div>
         </blockquote>
         ${
-          partida.Estat != "Ronda tancada"||jugadorDesat.Nom=="Beatriu Defior"
+          partida.Estat != "Ronda tancada"||jugadorDesat.Nom=="Beatriu Defior"||jugadorDesat.Nom=="Antoni Llull"
             ?`<button type="button" class="btn btn-primary mb-4" onclick="loadContent(['formulari',${partida.ID}]);updateHistory(['formulari',${partida.ID}]);">Edita</button>`
             :''
         }      
@@ -1672,3 +1672,4 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
