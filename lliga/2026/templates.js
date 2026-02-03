@@ -160,7 +160,7 @@ function renderJugador(jugador) {
                   </div>
               </div>
             </div>
-            ${jugador.grup=="Esporàdic"?classificacions:""}
+            ${jugador.grup!="Esporàdic"?classificacions:""}
             
             `
             
@@ -1676,5 +1676,6 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
 
 
