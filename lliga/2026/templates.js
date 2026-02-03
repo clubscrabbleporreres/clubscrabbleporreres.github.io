@@ -184,11 +184,11 @@ function renderJugador(jugador) {
                     <ul class="list-group list-group-flush rounded-4">
   
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="">Nombre total de Scrabbles:</div>
+                        <div class="">Nombre total de scrabbles:</div>
                         <div class="">${jugador.Scrabbles}</div>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="">Mitjana de Scrabbles per partida	:</div>
+                        <div class="">Mitjana de scrabbles per partida	:</div>
                         <div class="">${jugador.mitjanaScrabbles}</div>
                       </li>
                       <li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseScrabbles${
@@ -202,7 +202,7 @@ function renderJugador(jugador) {
                         <table class="table">
                             <tr>
                                 <td></td>
-                                <td><small>Total Scrabbles</small></td>
+                                <td><small>Total scrabbles</small></td>
                                 <td><small>Adversari</small></td>
                                  <td></td>
                             </tr>
@@ -1674,6 +1674,7 @@ function ExcelDateToJSDate(serial) {
   );
   return jsdate.toLocaleDateString();
 }
+
 
 
 
