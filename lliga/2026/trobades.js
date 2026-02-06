@@ -83,7 +83,7 @@ function renderTrobada(trobada) {
                   </div>
                   <div class="card mb-3"> 
               <div class="card-body">
-                  <p>Assistiran ${assistents.filter((as) => as.Assistencia == "si").length
+                  <p>Hi assistiran ${assistents.filter((as) => as.Assistencia == "si").length
       } dels ${assistents.length - 1} que han avisat.</p>
                   <p>${sopar ?? ""}</p>
               </div>
@@ -616,6 +616,7 @@ async function editaTrobada() {
     .catch(error => console.error('Error:', error));
 
 }
+
 
 
 
