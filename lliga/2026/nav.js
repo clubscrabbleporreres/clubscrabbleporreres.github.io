@@ -121,7 +121,8 @@ function loadContent(vista) {
     case "fase2":
       iniciJSON("fase2")
       break;
-    case "grup2":
+      
+    case "grup3":
       navbarTitle.innerHTML = "Classificació 🤺";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
@@ -130,7 +131,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-      const dadesfassers = dades.filter(g => g.grup == grup2)
+      const dadesfassers = dades.filter(g => g.grup == grup3)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -144,7 +145,54 @@ function loadContent(vista) {
       var ordenada = false;
       var icona = document.getElementById("icona");
       document.getElementById("ordenarBoto").addEventListener("click", () => {
-        // Llama a la función de ordenar la tabla por la segunda columna (Edad)
+        
+        if (!ordenada) {
+          ordenarLlistaPercentatge();
+          ordenada = true;
+          icona.classList.add("bi-list-ol");
+          icona.classList.remove("bi-percent");
+        } else {
+          ordenarLlistaPunts();
+          ordenada = false;
+          icona.classList.remove("bi-list-ol");
+          icona.classList.add("bi-percent");
+        }
+      });
+      contentDiv.querySelectorAll(".card").forEach((nom) => {
+        var id = nom.dataset.id;
+        //console.log(id)
+        nom.addEventListener("click", () => {
+          loadContent(["detall", id]);
+          updateHistory(["detall", id]);
+        });
+      });
+
+      break;
+
+    case "grup2":
+      navbarTitle.innerHTML = "Classificació 🚣‍♀️";
+      contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
+      var div = document.createElement("div");
+      div.id = "subcontent";
+      /* div.classList.add("row-md-8");
+      div.classList.add("justify-content-center"); */
+      div.classList.add("p-0");
+      contentDiv.appendChild(div);
+      const dadesintermedi = dades.filter(g => g.grup == grup2)
+      /* function ordreClassificacio(a, b) {
+        return a.Posició - b.Posició;
+      } */
+      dadesintermedi.sort(ordreClassificacio);
+      console.log(dadesfassers)
+      dadesintermedi.forEach((jugador) => {
+        jugador.percentatgeVictories =
+          parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
+        renderClassificacio(jugador);
+      });
+      var ordenada = false;
+      var icona = document.getElementById("icona");
+      document.getElementById("ordenarBoto").addEventListener("click", () => {
+       
         if (!ordenada) {
           ordenarLlistaPercentatge();
           ordenada = true;
@@ -191,7 +239,7 @@ function loadContent(vista) {
       var ordenada = false;
       var icona = document.getElementById("icona");
       document.getElementById("ordenarBoto").addEventListener("click", () => {
-        // Llama a la función de ordenar la tabla por la segunda columna (Edad)
+       
         if (!ordenada) {
           ordenarLlistaPercentatge();
           ordenada = true;
