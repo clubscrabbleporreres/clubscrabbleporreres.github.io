@@ -183,7 +183,7 @@ function loadContent(vista) {
         return a.Posició - b.Posició;
       } */
       dadesintermedi.sort(ordreClassificacio);
-      console.log(dadesfassers)
+      console.log(dadesintermedi)
       dadesintermedi.forEach((jugador) => {
         jugador.percentatgeVictories =
           parseInt(jugador.Punts) / parseInt(jugador.PartidesJugades);
