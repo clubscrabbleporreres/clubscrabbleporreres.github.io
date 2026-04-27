@@ -122,7 +122,7 @@ function loadContent(vista) {
       iniciJSON("fase2")
       break;
       
-    case "grup3":
+    case "grup2":
       navbarTitle.innerHTML = "Classificació 🤺";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
@@ -131,7 +131,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-      const dadesfassers = dades.filter(g => g.grup == grup3)
+      const dadesfassers = dades.filter(g => g.grup == grup2)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
@@ -169,7 +169,7 @@ function loadContent(vista) {
 
       break;
 
-    case "grup2":
+    case "grup3":
       navbarTitle.innerHTML = "Classificació 🚣‍♀️";
       contentDiv.innerHTML += `<div class="p-1" id="ordenarBoto"><i id="icona" class="float-end bi bi-percent" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ordena per percentatge de victòries o per punts."></i></div>`;
       var div = document.createElement("div");
@@ -178,7 +178,7 @@ function loadContent(vista) {
       div.classList.add("justify-content-center"); */
       div.classList.add("p-0");
       contentDiv.appendChild(div);
-      const dadesintermedi = dades.filter(g => g.grup == grup2)
+      const dadesintermedi = dades.filter(g => g.grup == grup3)
       /* function ordreClassificacio(a, b) {
         return a.Posició - b.Posició;
       } */
