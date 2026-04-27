@@ -1435,7 +1435,7 @@ function renderRondes(ronda) {
               <button type="button" class="btn btn-primary detallronda" data-id="${
                ronda.Ronda}" data-grup="grup2">${grup2}</button>
                <button type="button" class="btn btn-primary detallronda ${grup3?'':'d-none'}" data-id="${
-               ronda.Ronda}" data-grup="grup2">${grup3}</button>
+               ronda.Ronda}" data-grup="grup3">${grup3}</button>
               </div> 
             </div>
          
