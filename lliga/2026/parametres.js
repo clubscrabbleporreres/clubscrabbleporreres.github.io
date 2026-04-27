@@ -65,6 +65,9 @@ function iniciJSON(fase,vista) {
   grup1=fases[fase]['grup1']
   grup2=fases[fase]['grup2']
   grup3=fases[fase]['grup3']
+  if(grup3){
+    document.querySelectAll(".grup3").forEach(el=>el.classList.remove("d-none"))
+  }
   let nomFase = ""
   fase=="fase1"?nomFase ="Fase 1":nomFase ="Fase 2"
   document.getElementById("fases").innerText = nomFase
