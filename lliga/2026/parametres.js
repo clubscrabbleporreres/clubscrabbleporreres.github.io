@@ -55,7 +55,7 @@ function carregaUsuari() {
   }
   
 }
-document.addEventListener("DOMContentLoaded", iniciJSON('fase1'));
+document.addEventListener("DOMContentLoaded", iniciJSON('fase2'));
 
 function iniciJSON(fase,vista) {
   fase = fase || 'fase2'
