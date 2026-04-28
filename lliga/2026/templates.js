@@ -1432,10 +1432,11 @@ function renderRondes(ronda) {
             <div class="d-flex justify-content-around">
              <button type="button" class="btn btn-primary detallronda" data-id="${
                ronda.Ronda}" data-grup="grup1">${grup1}</button>
-              <button type="button" class="btn btn-primary detallronda" data-id="${
-               ronda.Ronda}" data-grup="grup2">${grup2}</button>
                <button type="button" class="btn btn-primary detallronda ${grup3?'':'d-none'}" data-id="${
                ronda.Ronda}" data-grup="grup3">${grup3}</button>
+              <button type="button" class="btn btn-primary detallronda" data-id="${
+               ronda.Ronda}" data-grup="grup2">${grup2}</button>
+               
               </div> 
             </div>
          
